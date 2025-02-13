@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Factions{% endblock %}
+
+{% block body %}
+    <h1>Create new Factions</h1>
+
+    {{ include('factions/_form.html.twig') }}
+
+    <a href="{{ path('app_factions_index') }}">back to list</a>
+{% endblock %}

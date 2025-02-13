@@ -1,0 +1,62 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Disques{% endblock %}
+
+{% block body %}
+    <h1>Disques</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ disque.id }}</td>
+            </tr>
+            <tr>
+                <th>Emplacement</th>
+                <td>{{ disque.emplacement }}</td>
+            </tr>
+            <tr>
+                <th>MainStat</th>
+                <td>{{ disque.mainStat }}</td>
+            </tr>
+            <tr>
+                <th>SubStat1</th>
+                <td>{{ disque.subStat1 }}</td>
+            </tr>
+            <tr>
+                <th>ProcSubStat1</th>
+                <td>{{ disque.procSubStat1 }}</td>
+            </tr>
+            <tr>
+                <th>SubStat2</th>
+                <td>{{ disque.subStat2 }}</td>
+            </tr>
+            <tr>
+                <th>ProcSubStat2</th>
+                <td>{{ disque.procSubStat2 }}</td>
+            </tr>
+            <tr>
+                <th>SubStat3</th>
+                <td>{{ disque.subStat3 }}</td>
+            </tr>
+            <tr>
+                <th>ProcSubStat3</th>
+                <td>{{ disque.procSubStat3 }}</td>
+            </tr>
+            <tr>
+                <th>SubStat4</th>
+                <td>{{ disque.subStat4 }}</td>
+            </tr>
+            <tr>
+                <th>ProcSubStat4</th>
+                <td>{{ disque.procSubStat4 }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_disques_index') }}">back to list</a>
+
+    <a href="{{ path('app_disques_edit', {'id': disque.id}) }}">edit</a>
+
+    {{ include('disques/_delete_form.html.twig') }}
+{% endblock %}

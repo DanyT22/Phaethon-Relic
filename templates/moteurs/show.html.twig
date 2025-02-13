@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Moteurs{% endblock %}
+
+{% block body %}
+    <h1>{{ moteur.nomMoteur }}</h1>
+
+    <div>
+        <img href="">
+        <div> stat </div>
+        <div> materiaux up </div>
+    </div>
+
+    <div> Passif </div>
+
+    <a href="{{ path('app_moteurs_index') }}">back to list</a>
+
+{% endblock %}

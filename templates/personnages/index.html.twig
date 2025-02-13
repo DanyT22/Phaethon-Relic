@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Personnages list{% endblock %}
+
+{% block body %}
+    <div class="filtre"> </div>
+
+    <div class="">
+        {% for personnage in personnages %}
+            <a href="{{ path('app_personnages_show', {'id': personnage.id}) }}">
+                <div class="{{ personnage.element.nomElement }}">
+                    <img href="{{ personnage.icon }}">
+                    <p> {{ personnage.nomPersonnage }}
+                    <div>
+                        <img href="{{ personnage.rarete.icon }}">
+                        <img href="{{ personnage.specialite.icon }}">
+                    </div>
+            </a>
+        {% endfor %}
+    </div>
+
+{% endblock %}

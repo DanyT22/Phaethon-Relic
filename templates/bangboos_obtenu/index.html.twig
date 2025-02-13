@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}BangboosObtenu index{% endblock %}
+
+{% block body %}
+    <h1>BangboosObtenu index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for bangboos_obtenu in bangboos_obtenus %}
+            <tr>
+                <td>{{ bangboos_obtenu.id }}</td>
+                <td>
+                    <a href="{{ path('app_bangboos_obtenu_show', {'id': bangboos_obtenu.id}) }}">show</a>
+                    <a href="{{ path('app_bangboos_obtenu_edit', {'id': bangboos_obtenu.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="2">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_bangboos_obtenu_new') }}">Create new</a>
+{% endblock %}

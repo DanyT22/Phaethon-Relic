@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Moteurs index{% endblock %}
+
+{% block body %}
+    <div class="filtre"> </div>
+
+    <div>
+        {% for moteur in moteurs %}
+            <a href="{{ path('app_moteurs_show', {'id': moteur.id}) }}">
+                <div class="">
+                    <img href="{{ moteur.icon }}">
+                    <p> {{ moteur.nomMoteur }}
+                    <div>
+                        <img href="{{ moteur.rarete.icon }}">
+                        <img href="{{ moteur.specialite.icon }}">
+                    </div>
+                </div>
+            </a>
+        {% endfor %}
+    </div>
+{% endblock %}

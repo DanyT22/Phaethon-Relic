@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Bangboos index{% endblock %}
+
+{% block body %}
+    <div class="filtre"> </div>
+
+    <div>
+        {% for bangboo in bangboos %}
+            <a href="{{ path('app_bangboos_show', {'id': bangboo.id}) }}">
+                <div class"">
+                    <img href="{{ bangboo.icon }}">
+                    <p> {{ bangboo.nomPersonnage }}
+                    <img href="{{ bangboo.rarete.icon }}">
+                </div>
+            </a>
+        {% endfor %}
+    </div>
+
+{% endblock %}

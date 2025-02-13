@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Bangboos{% endblock %}
+
+{% block body %}
+    <h1>{{ bangboos.nomBangboos }}</h1>
+
+    <div>
+        <img href="">
+        <div> stat </div>
+        <div> materiaux up </div>
+    </div>
+
+    <div>
+        <div> A </div>
+        <div> Multi </div>
+    </div>
+
+    <div>
+        <div> B </div>
+        <div> Multi </div>
+    </div>
+
+    <div>
+        <div> C </div>
+        <div> Multi </div>
+    </div>
+
+    <a href="{{ path('app_bangboos_index') }}">back to list</a>
+
+{% endblock %}

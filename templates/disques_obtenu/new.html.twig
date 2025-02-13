@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New DisquesObtenu{% endblock %}
+
+{% block body %}
+    <h1>Create new DisquesObtenu</h1>
+
+    {{ include('disques_obtenu/_form.html.twig') }}
+
+    <a href="{{ path('app_disques_obtenu_index') }}">back to list</a>
+{% endblock %}

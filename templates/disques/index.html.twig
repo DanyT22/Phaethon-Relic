@@ -1,0 +1,53 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Disques index{% endblock %}
+
+{% block body %}
+    <h1>Disques index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Emplacement</th>
+                <th>MainStat</th>
+                <th>SubStat1</th>
+                <th>ProcSubStat1</th>
+                <th>SubStat2</th>
+                <th>ProcSubStat2</th>
+                <th>SubStat3</th>
+                <th>ProcSubStat3</th>
+                <th>SubStat4</th>
+                <th>ProcSubStat4</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for disque in disques %}
+            <tr>
+                <td>{{ disque.id }}</td>
+                <td>{{ disque.emplacement }}</td>
+                <td>{{ disque.mainStat }}</td>
+                <td>{{ disque.subStat1 }}</td>
+                <td>{{ disque.procSubStat1 }}</td>
+                <td>{{ disque.subStat2 }}</td>
+                <td>{{ disque.procSubStat2 }}</td>
+                <td>{{ disque.subStat3 }}</td>
+                <td>{{ disque.procSubStat3 }}</td>
+                <td>{{ disque.subStat4 }}</td>
+                <td>{{ disque.procSubStat4 }}</td>
+                <td>
+                    <a href="{{ path('app_disques_show', {'id': disque.id}) }}">show</a>
+                    <a href="{{ path('app_disques_edit', {'id': disque.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="12">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_disques_new') }}">Create new</a>
+{% endblock %}
