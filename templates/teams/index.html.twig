@@ -3,31 +3,45 @@
 {% block title %}Teams index{% endblock %}
 
 {% block body %}
-    <h1>Teams index</h1>
-
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for team in teams %}
-            <tr>
-                <td>{{ team.id }}</td>
-                <td>
-                    <a href="{{ path('app_teams_show', {'id': team.id}) }}">show</a>
-                    <a href="{{ path('app_teams_edit', {'id': team.id}) }}">edit</a>
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="2">no records found</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
+    <div class="filtre"> </div>
 
     <a href="{{ path('app_teams_new') }}">Create new</a>
+
+    <div class="">
+        {% for team in teams %}
+            <a href="{{ path('app_team_show', {'id': team.id}) }}">
+                <div>
+                    <div>
+                        <img href="{{ team.teamMember.build.personnage.icon }}">
+                        <img href="{{ team.teamMember.build.moteur.icon }}">
+                        <img>set1
+                        <img>set2
+                        <img>set3
+                    </div>
+                    <div>
+                        <img href="{{ team.teamMember.build.personnage.icon }}">
+                        <img href="{{ team.teamMember.build.moteur.icon }}">
+                        <img>set1
+                        <img>set2
+                        <img>set3
+                    </div>
+                    <div>
+                        <img href="{{ team.teamMember.build.personnage.icon }}">
+                        <img href="{{ team.teamMember.build.moteur.icon }}">
+                        <img>set1
+                        <img>set2
+                        <img>set3
+                    </div>
+                    <div>
+                        <p> {{team.nomTeam}} </p>
+                        <img href="{{ team.bangboos.icon }}">
+                    </div>
+                </div>
+            </a>
+        {% else %}
+        <p>Aucune Team creer</p>
+        {% endfor %}    
+        </div>
+
+
 {% endblock %}

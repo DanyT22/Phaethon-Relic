@@ -3,31 +3,45 @@
 {% block title %}Builds index{% endblock %}
 
 {% block body %}
-    <h1>Builds index</h1>
+    <div class="filtre"> </div>
 
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>actions</th>
-            </tr>
-        </thead>
-        <tbody>
+    <a href="{{ path('app_builds_new') }}">Create new</a>
+
+        <div class="">
         {% for build in builds %}
-            <tr>
-                <td>{{ build.id }}</td>
-                <td>
-                    <a href="{{ path('app_builds_show', {'id': build.id}) }}">show</a>
-                    <a href="{{ path('app_builds_edit', {'id': build.id}) }}">edit</a>
-                </td>
-            </tr>
+            <a href="{{ path('app_build_show', {'id': build.id}) }}">
+                <div class="{{ build.personnage.element.nomElement }}">
+                    <div>
+                        <img href="{{ build.personnage.icon }}">
+                        <img href="{{ build.moteur.icon }}">
+                    </div>
+                    <div>
+                        <img href="{{ build.disque1.icon }}">
+                        <img href="1">
+                        <img href="{{ build.disque2.icon }}">
+                        <img href="2">
+                        <img href="{{ build.disque3.icon }}">
+                        <img href="3">
+                        <img href="{{ build.disque4.icon }}">
+                        <img href="4">
+                        <img href="{{ build.disque5.icon }}">
+                        <img href="5">
+                        <img href="{{ build.disque6.icon }}">
+                        <img href="6">
+                    </div>
+                    <div>
+                        <p> effet set </p>
+                        <p> effet set </p>
+                        <p> effet set </p>
+                    </div>
+                </div>
+            </a>
         {% else %}
             <tr>
                 <td colspan="2">no records found</td>
             </tr>
         {% endfor %}
-        </tbody>
-    </table>
+    </div>
 
-    <a href="{{ path('app_builds_new') }}">Create new</a>
+
 {% endblock %}
