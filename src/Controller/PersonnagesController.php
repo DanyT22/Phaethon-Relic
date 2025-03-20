@@ -17,7 +17,7 @@ final class PersonnagesController extends AbstractController
     #[Route(name: 'app_personnages_index', methods: ['GET'])]
     public function index(PersonnagesRepository $personnagesRepository): Response
     {
-                return $this->render('personnages/index.html.twig', [
+        return $this->render('personnages/index.html.twig', [
             'personnages' => $personnagesRepository->findAll(),
         ]);
     }

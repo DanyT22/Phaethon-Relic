@@ -16,6 +16,15 @@ class BangboosRepository extends ServiceEntityRepository
         parent::__construct($registry, Bangboos::class);
     }
 
+    public function findLastTwo(): array
+    {
+        return $this->createQueryBuilder('p')
+            ->orderBy('p.id', 'DESC')
+            ->setMaxResults(2)
+            ->getQuery()
+            ->getResult();
+    }
+
     //    /**
     //     * @return Bangboos[] Returns an array of Bangboos objects
     //     */

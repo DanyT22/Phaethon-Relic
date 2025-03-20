@@ -16,6 +16,15 @@ class MoteursRepository extends ServiceEntityRepository
         parent::__construct($registry, Moteurs::class);
     }
 
+    public function findLastSix(): array
+    {
+        return $this->createQueryBuilder('p')
+            ->orderBy('p.id', 'DESC')
+            ->setMaxResults(6)
+            ->getQuery()
+            ->getResult();
+    }
+
 //    /**
 //     * @return Moteurs[] Returns an array of Moteurs objects
 //     */

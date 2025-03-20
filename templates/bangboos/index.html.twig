@@ -9,9 +9,9 @@
         {% for bangboo in bangboos %}
             <a href="{{ path('app_bangboos_show', {'id': bangboo.id}) }}">
                 <div class"">
-                    <img href="{{ bangboo.icon }}">
-                    <p> {{ bangboo.nomPersonnage }}
-                    <img href="{{ bangboo.rarete.icon }}">
+                    <img src="{{ asset('images/bangboos/' ~ bangboo.nomBangboo|replace({' ': '_'}) ~ '.jpg') }}" class= "w-36">
+                    <p> {{ bangboo.nomBangboo }}
+                    <img src="{{ asset('images/raretes/' ~ bangboo.rarete.rarete|replace({' ': '_'}) ~ '.jpg') }}" class= "w-24">
                 </div>
             </a>
         {% endfor %}

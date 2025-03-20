@@ -19,8 +19,8 @@ class PersonnagesRepository extends ServiceEntityRepository
     public function findLastSix(): array
     {
         return $this->createQueryBuilder('p')
-            ->orderBy('p.id', 'DESC') // Trie par ID décroissant (ou autre champ pertinent comme 'createdAt')
-            ->setMaxResults(6) // Limite à 6 résultats
+            ->orderBy('p.id', 'DESC')
+            ->setMaxResults(6)
             ->getQuery()
             ->getResult();
     }

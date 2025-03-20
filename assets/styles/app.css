@@ -1,5 +1,25 @@
 @import "tailwindcss";
 
 body {
-    background-color: lightgray;
+    background-color: #1E1E1E;
+}
+
+.Feu {
+    background-color: hsla(0, 93%, 42%, 0.6);
+}
+
+.Glace {
+    background-color: hsl(198, 82%, 45%, 0.6);
+}
+
+.Électrique {
+    background-color: hsl(239, 100%, 50%, 0.6);
+}
+
+.Physique {
+    background-color: hsla(44, 76%, 46%, 0.6);
+}
+
+.Éther {
+    background-color: hsl(306, 83%, 45%, 0.6);
 }

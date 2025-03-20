@@ -18,11 +18,11 @@ class Moteurs
 
     #[ORM\ManyToOne]
     #[ORM\JoinColumn(nullable: false)]
-    private ?raretes $rarete = null;
+    private ?Raretes $rarete = null;
 
     #[ORM\ManyToOne]
     #[ORM\JoinColumn(nullable: false)]
-    private ?specialites $specialite = null;
+    private ?Specialites $specialite = null;
 
     public function getId(): ?int
     {

@@ -9,11 +9,11 @@
         {% for moteur in moteurs %}
             <a href="{{ path('app_moteurs_show', {'id': moteur.id}) }}">
                 <div class="">
-                    <img href="{{ moteur.icon }}">
+                    <img src="{{ asset('images/moteurs/' ~ moteur.nomMoteur|replace({' ': '_'}) ~ '.jpg') }}" class= "w-36">
                     <p> {{ moteur.nomMoteur }}
                     <div>
-                        <img href="{{ moteur.rarete.icon }}">
-                        <img href="{{ moteur.specialite.icon }}">
+                        <img src="{{ asset('images/raretes/' ~ moteur.rarete.rarete|replace({' ': '_'}) ~ '.jpg') }}" class= "w-24">
+                        <img src="{{ asset('images/specialites/' ~ moteur.specialite.specialite|replace({' ': '_'}) ~ '.jpg') }}" class= "w-24">
                     </div>
                 </div>
             </a>

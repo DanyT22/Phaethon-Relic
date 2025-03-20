@@ -3,11 +3,10 @@
     <head>
         <meta charset="UTF-8">
         <title>{% block title %}Welcome!{% endblock %}</title>
-        <link rel="icon" href="">
+        <link rel="icon" href="{{ asset('images/logo/Logo.png') }}">
         <link rel="stylesheet" href="{{ asset('styles/app.css') }}">
         {% block stylesheets %}
             {{ encore_entry_link_tags('app') }}
-
         {% endblock %}
 
         {% block javascripts %}
@@ -15,6 +14,23 @@
         {% endblock %}
     </head>
     <body>
+    <header>
+        <a href="{{ path('app_home') }}">
+            <img src="{{ asset('images/logo/Logo.png') }}" alt="logo" class="w-24">
+        </a>
+        <nav>
+            <a href="{{ path('app_personnages_index') }}">Personages</a>
+            <a href="{{ path('app_moteurs_index') }}">Moteurs</a>
+            <a href="{{ path('app_bangboos_index') }}">Bangboos</a>
+            <a href="{{ path('app_disques_index') }}">Disque</a>
+            <a href="{{ path('app_builds_index') }}">Build</a>
+            <a href="{{ path('app_teams_index') }}">Team</a>
+        </nav>
+        {% if app.user %}
+            <a href="{{ path('app_logout') }}">Deconnexion</a>
+        {% else %}
+            <a href="{{ path('app_connexion_inscription')}}">Connexion/Inscription</a>
+        {% endif %}
         {% block body %}{% endblock %}
     </body>
 </html>

@@ -18,7 +18,7 @@ class Bangboos
 
     #[ORM\ManyToOne]
     #[ORM\JoinColumn(nullable: false)]
-    private ?raretes $rarete = null;
+    private ?Raretes $rarete = null;
 
     #[ORM\Column(length: 100)]
     private ?string $prerequis = null;

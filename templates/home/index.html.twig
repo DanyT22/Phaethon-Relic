@@ -1,0 +1,51 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Phaethon Relic{% endblock %}
+
+{% block body %}
+    <p> Dernier Personages sortie </p>
+    <div class="">
+        {% for personnage in personnages %}
+            <a href="{{ path('app_personnages_show', {'id': personnage.id}) }}">
+                <div class="{{ personnage.element.element }} sm:w-1/1 md:w-1/2 lg:w-1/4">
+                <img src="{{ asset('images/icon/' ~ personnage.nomPersonnage|replace({' ': '_'}) ~ '.jpg') }}" class= "w-36">
+                    <p> {{ personnage.nomPersonnage }}
+                    <div>
+                        <img src="{{ asset('images/raretes/' ~ personnage.rarete.rarete|replace({' ': '_'}) ~ '.jpg') }}" class= "w-24">
+                        <img src="{{ asset('images/specialites/' ~ personnage.specialite.specialite|replace({' ': '_'}) ~ '.jpg') }}" class= "w-24">
+                        <img src="{{ asset('images/factions/' ~ personnage.faction.faction|replace({' ': '_'}) ~ '.jpg') }}" class= "w-24">
+                    </div>
+                </div>
+            </a>
+        {% endfor %}
+    </div>
+
+    <p> Dernier Moteurs sortie </p>
+        <div>
+        {% for moteur in moteurs %}
+            <a href="{{ path('app_moteurs_show', {'id': moteur.id}) }}">
+                <div class="">
+                    <img src="{{ asset('images/moteurs/' ~ moteur.nomMoteur|replace({' ': '_'}) ~ '.jpg') }}" class= "w-36">
+                    <p> {{ moteur.nomMoteur }}
+                    <div>
+                        <img src="{{ asset('images/raretes/' ~ moteur.rarete.rarete|replace({' ': '_'}) ~ '.jpg') }}" class= "w-24">
+                        <img src="{{ asset('images/specialites/' ~ moteur.specialite.specialite|replace({' ': '_'}) ~ '.jpg') }}" class= "w-24">
+                    </div>
+                </div>
+            </a>
+        {% endfor %}
+    </div>
+
+    <p> Dernier Bangboos sortie </p>
+        <div>
+        {% for bangboo in bangboos %}
+            <a href="{{ path('app_bangboos_show', {'id': bangboo.id}) }}">
+                <div class"">
+                    <img src="{{ asset('images/bangboos/' ~ bangboo.nomBangboo|replace({' ': '_'}) ~ '.jpg') }}" class= "w-36">
+                    <p> {{ bangboo.nomBangboo }}
+                    <img src="{{ asset('images/raretes/' ~ bangboo.rarete.rarete|replace({' ': '_'}) ~ '.jpg') }}" class= "w-24">
+                </div>
+            </a>
+        {% endfor %}
+    </div>
+{% endblock %}

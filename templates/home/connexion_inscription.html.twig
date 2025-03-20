@@ -1,0 +1,10 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Phaethon Relic{% endblock %}
+
+{% block body %}
+<img src="{{ asset('images/logo/Logo-Phaethon.jpg') }}" class="">
+
+<a href="{{ path('app_login') }}"> Connexion </a>
+<a href="{{ path('app_register') }}"> Inscription </a>
+{% endblock %}
