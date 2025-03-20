@@ -13,8 +13,8 @@
                     <p> {{ personnage.nomPersonnage }}
                     <div>
                         <img src="{{ asset('images/factions/' ~ personnage.faction.faction|replace({' ': '_'}) ~ '.jpg') }}" class= "w-24">
-                        <img src="{{ asset('images/specialites/' ~ personnage.specialite.specialite|replace({' ': '_'}) ~ '.jpg') }}">
-                        <img src="{{ asset('images/elements/' ~ personnage.element.element|replace({' ': '_'}) ~ '.jpg') }}">
+                        <img src="{{ asset('images/specialites/' ~ personnage.specialite.specialite|replace({' ': '_'}) ~ '.jpg') }}" class= "w-24">
+                        <img src="{{ asset('images/elements/' ~ personnage.element.element|replace({' ': '_'}) ~ '.jpg') }}" class= "w-24">
                     </div>
                 </div>
             </a>
