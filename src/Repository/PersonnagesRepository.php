@@ -16,6 +16,15 @@ class PersonnagesRepository extends ServiceEntityRepository
         parent::__construct($registry, Personnages::class);
     }
 
+    public function findLastSix(): array
+    {
+        return $this->createQueryBuilder('p')
+            ->orderBy('p.id', 'DESC') // Trie par ID décroissant (ou autre champ pertinent comme 'createdAt')
+            ->setMaxResults(6) // Limite à 6 résultats
+            ->getQuery()
+            ->getResult();
+    }
+
     //    /**
     //     * @return Personnages[] Returns an array of Personnages objects
     //     */

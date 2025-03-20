@@ -17,9 +17,6 @@ class Specialites
     #[ORM\Column(length: 50)]
     private ?string $specialite = null;
 
-    #[ORM\Column(type: Types::TEXT)]
-    private ?string $icon = null;
-
     public function getId(): ?int
     {
         return $this->id;
@@ -33,18 +30,6 @@ class Specialites
     public function setSpecialite(string $specialite): static
     {
         $this->specialite = $specialite;
-
-        return $this;
-    }
-
-    public function getIcon(): ?string
-    {
-        return $this->icon;
-    }
-
-    public function setIcon(string $icon): static
-    {
-        $this->icon = $icon;
 
         return $this;
     }

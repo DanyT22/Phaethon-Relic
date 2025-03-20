@@ -17,9 +17,6 @@ class Elements
     #[ORM\Column(length: 20)]
     private ?string $element = null;
 
-    #[ORM\Column(type: Types::TEXT)]
-    private ?string $icon = null;
-
     public function getId(): ?int
     {
         return $this->id;
@@ -33,18 +30,6 @@ class Elements
     public function setElement(string $element): static
     {
         $this->element = $element;
-
-        return $this;
-    }
-
-    public function getIcon(): ?string
-    {
-        return $this->icon;
-    }
-
-    public function setIcon(string $icon): static
-    {
-        $this->icon = $icon;
 
         return $this;
     }

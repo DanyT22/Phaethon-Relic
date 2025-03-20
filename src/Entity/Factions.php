@@ -14,11 +14,8 @@ class Factions
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\Column(length: 50)]
+    #[ORM\Column(length: 255)]
     private ?string $faction = null;
-
-    #[ORM\Column(type: Types::TEXT)]
-    private ?string $icon = null;
 
     public function getId(): ?int
     {
@@ -33,18 +30,6 @@ class Factions
     public function setFaction(string $faction): static
     {
         $this->faction = $faction;
-
-        return $this;
-    }
-
-    public function getIcon(): ?string
-    {
-        return $this->icon;
-    }
-
-    public function setIcon(string $icon): static
-    {
-        $this->icon = $icon;
 
         return $this;
     }

@@ -19,22 +19,19 @@ class Personnages
 
     #[ORM\ManyToOne]
     #[ORM\JoinColumn(nullable: false)]
-    private ?raretes $rarete = null;
+    private ?Raretes $rarete = null;
 
     #[ORM\ManyToOne]
     #[ORM\JoinColumn(nullable: false)]
-    private ?elements $element = null;
+    private ?Elements $element = null;
 
     #[ORM\ManyToOne]
     #[ORM\JoinColumn(nullable: false)]
-    private ?specialites $specialite = null;
+    private ?Specialites $specialite = null;
 
     #[ORM\ManyToOne]
     #[ORM\JoinColumn(nullable: false)]
-    private ?factions $faction = null;
-
-    #[ORM\Column(type: Types::TEXT)]
-    private ?string $icon = null;
+    private ?Factions $faction = null;
 
     public function getId(): ?int
     {
@@ -101,15 +98,4 @@ class Personnages
         return $this;
     }
 
-    public function getIcon(): ?string
-    {
-        return $this->icon;
-    }
-
-    public function setIcon(string $icon): static
-    {
-        $this->icon = $icon;
-
-        return $this;
-    }
 }

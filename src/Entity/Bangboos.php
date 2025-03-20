@@ -20,6 +20,9 @@ class Bangboos
     #[ORM\JoinColumn(nullable: false)]
     private ?raretes $rarete = null;
 
+    #[ORM\Column(length: 100)]
+    private ?string $prerequis = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -45,6 +48,18 @@ class Bangboos
     public function setRarete(?raretes $rarete): static
     {
         $this->rarete = $rarete;
+
+        return $this;
+    }
+
+    public function getPrerequis(): ?string
+    {
+        return $this->prerequis;
+    }
+
+    public function setPrerequis(string $prerequis): static
+    {
+        $this->prerequis = $prerequis;
 
         return $this;
     }
