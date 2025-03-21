@@ -17,8 +17,10 @@ final class BangboosController extends AbstractController
     #[Route(name: 'app_bangboos_index', methods: ['GET'])]
     public function index(BangboosRepository $bangboosRepository): Response
     {
+        $bangboos = $bangboosRepository->reverse();
+
         return $this->render('bangboos/index.html.twig', [
-            'bangboos' => $bangboosRepository->findAll(),
+            'bangboos' => $bangboos,
         ]);
     }
 

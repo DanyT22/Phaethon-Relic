@@ -4,10 +4,10 @@
 
 {% block body %}
     <p> Dernier Personages sortie </p>
-    <div class="">
+    <div class="grid grid-cols-2 justify-items-center ">
         {% for personnage in personnages %}
             <a href="{{ path('app_personnages_show', {'id': personnage.id}) }}">
-                <div class="{{ personnage.element.element }} sm:w-1/1 md:w-1/2 lg:w-1/4">
+                <div class="{{ personnage.element.element }}  ">
                 <img src="{{ asset('images/icon/' ~ personnage.nomPersonnage|replace({' ': '_'}) ~ '.jpg') }}" class= "w-36">
                     <p> {{ personnage.nomPersonnage }}
                     <div>

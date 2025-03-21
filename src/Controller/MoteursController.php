@@ -17,8 +17,9 @@ final class MoteursController extends AbstractController
     #[Route(name: 'app_moteurs_index', methods: ['GET'])]
     public function index(MoteursRepository $moteursRepository): Response
     {
+        $moteurs = $moteursRepository->reverse();
         return $this->render('moteurs/index.html.twig', [
-            'moteurs' => $moteursRepository->findAll(),
+            'moteurs' => $moteurs,
         ]);
     }
 

@@ -16,6 +16,14 @@ class BangboosRepository extends ServiceEntityRepository
         parent::__construct($registry, Bangboos::class);
     }
 
+    public function reverse(): array
+    {
+        return $this->createQueryBuilder('p')
+            ->orderBy('p.id', 'DESC')
+            ->getQuery()
+            ->getResult();
+    }
+
     public function findLastTwo(): array
     {
         return $this->createQueryBuilder('p')

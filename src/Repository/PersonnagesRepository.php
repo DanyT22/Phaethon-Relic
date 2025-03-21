@@ -16,6 +16,14 @@ class PersonnagesRepository extends ServiceEntityRepository
         parent::__construct($registry, Personnages::class);
     }
 
+    public function reverse(): array
+    {
+        return $this->createQueryBuilder('p')
+            ->orderBy('p.id', 'DESC')
+            ->getQuery()
+            ->getResult();
+    }
+
     public function findLastSix(): array
     {
         return $this->createQueryBuilder('p')
