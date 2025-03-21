@@ -5,13 +5,22 @@
 {% block body %}
     <div class="filtre"> </div>
 
-    <div>
+    </div>
+        <div class="grid grid-cols-3 gap-4 w-full h-full">
         {% for bangboo in bangboos %}
             <a href="{{ path('app_bangboos_show', {'id': bangboo.id}) }}">
-                <div class"">
-                    <img src="{{ asset('images/bangboos/' ~ bangboo.nomBangboo|replace({' ': '_'}) ~ '.jpg') }}" class= "w-36">
-                    <p> {{ bangboo.nomBangboo }}
-                    <img src="{{ asset('images/raretes/' ~ bangboo.rarete.rarete|replace({' ': '_'}) ~ '.jpg') }}" class= "w-24">
+                <div class="NoElements flex w-full p-[2%]">
+                    <div class="h-full w-1/4">
+                        <img src="{{ asset('images/bangboos/' ~ bangboo.nomBangboo|replace({' ': '_'}) ~ '.jpg') }}" class= "h-20 w-36">
+                    </div>
+                    <div class="flex flex-col justify-between w-3/4">
+                        <div class="flex items-center justify-center h-full w-full">
+                            <p class="text-center text-xl text-white truncate"> {{ bangboo.nomBangboo }} </p>
+                        </div>
+                        <div class="flex justify-around h-full w-full">
+                        <img src="{{ asset('images/raretes/' ~ bangboo.rarete.rarete|replace({' ': '_'}) ~ '.jpg') }}" class= "h-12 w-12">
+                        </div>
+                    </div>
                 </div>
             </a>
         {% endfor %}

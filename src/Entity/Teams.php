@@ -15,11 +15,11 @@ class Teams
 
     #[ORM\ManyToOne]
     #[ORM\JoinColumn(nullable: false)]
-    private ?user $user = null;
+    private ?User $user = null;
 
     #[ORM\ManyToOne]
     #[ORM\JoinColumn(nullable: false)]
-    private ?bangboos $bangboo = null;
+    private ?Bangboos $bangboo = null;
 
     public function getId(): ?int
     {

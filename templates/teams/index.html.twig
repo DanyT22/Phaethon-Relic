@@ -5,7 +5,11 @@
 {% block body %}
     <div class="filtre"> </div>
 
-    <a href="{{ path('app_teams_new') }}">Create new</a>
+    <a href="{{ path('app_teams_new') }}">
+    <div class="bg-black flex items-center justify-center w-full p-8 m-8">
+        <p class="text-center text-2xl text-white">Create new</p>
+    </div>
+</a>
 
     <div class="">
         {% for team in teams %}

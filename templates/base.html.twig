@@ -2,7 +2,7 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
+        <title>{% block title %}Phaethon Relic{% endblock %}</title>
         <link rel="icon" href="{{ asset('images/logo/Logo.png') }}">
         <link rel="stylesheet" href="{{ asset('styles/app.css') }}">
         {% block stylesheets %}
@@ -14,26 +14,28 @@
         {% endblock %}
     </head>
     <body>
-    <header>
+    <header class="bg-black flex justify-between items-center px-16 py-4 mb-8">
         <a href="{{ path('app_home') }}">
             <img src="{{ asset('images/logo/Logo.png') }}" alt="logo" class="w-24">
         </a>
-        <nav>
-            <a href="{{ path('app_personnages_index') }}">Personages</a>
-            <a href="{{ path('app_moteurs_index') }}">Moteurs</a>
-            <a href="{{ path('app_bangboos_index') }}">Bangboos</a>
-            <a href="{{ path('app_disques_index') }}">Disque</a>
-            <a href="{{ path('app_builds_index') }}">Build</a>
-            <a href="{{ path('app_teams_index') }}">Team</a>
+        <nav class="flex gap-[5%]">
+            <a href="{{ path('app_personnages_index') }}" class="text-white">Personages</a>
+            <a href="{{ path('app_moteurs_index') }}" class="text-white">Moteurs</a>
+            <a href="{{ path('app_bangboos_index') }}" class="text-white">Bangboos</a>
+            <a href="{{ path('app_disques_index') }}" class="text-white">Disque</a>
+            <a href="{{ path('app_builds_index') }}" class="text-white">Build</a>
+            <a href="{{ path('app_teams_index') }}" class="text-white">Team</a>
         </nav>
         {% if app.user %}
-            <a href="{{ path('app_logout') }}">Deconnexion</a>
+            <a href="{{ path('app_logout') }}" class="text-white">Deconnexion</a>
         {% else %}
-            <a href="{{ path('app_connexion_inscription')}}">Connexion/Inscription</a>
+            <a href="{{ path('app_connexion_inscription')}}" class="text-white">Connexion/Inscription</a>
         {% endif %}
     </header>
-    <main>
+    <main class="px-[10%] min-h-[80vh]">
         {% block body %}{% endblock %}
     </main>
+    <footer class="bg-black h-24 mt-8">
+    </footer>
     </body>
 </html>

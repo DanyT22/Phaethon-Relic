@@ -5,7 +5,11 @@
 {% block body %}
     <div class="filtre"> </div>
 
-    <a href="{{ path('app_builds_new') }}">Create new</a>
+<a href="{{ path('app_builds_new') }}">
+    <div class="bg-black flex items-center justify-center w-full p-8 m-8">
+        <p class="text-center text-2xl text-white">Create new</p>
+    </div>
+</a>
 
         <div class="">
         {% for build in builds %}
@@ -37,9 +41,7 @@
                 </div>
             </a>
         {% else %}
-            <tr>
-                <td colspan="2">no records found</td>
-            </tr>
+                <p>no records found</p>
         {% endfor %}
     </div>
 

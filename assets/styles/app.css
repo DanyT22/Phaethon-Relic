@@ -23,3 +23,7 @@ body {
 .Éther {
     background-color: hsl(306, 83%, 45%, 0.6);
 }
+
+.NoElements {
+    background-color: hsl(0, 0%, 0%, 0.6);
+}

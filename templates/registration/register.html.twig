@@ -7,17 +7,26 @@
         <div class="alert alert-danger" role="alert">{{ flash_error }}</div>
     {% endfor %}
 
-    <h1>Register</h1>
+<div class="flex flex-col items-center justify-center gap-8 p-8 my-8">
+    <img src="{{ asset('images/logo/Logo-Phaethon_Relic.png') }}" class="">
+    <div class="bg-black flex items-center justify-center w-full p-8 my-8">
+        <h1 class="text-center text-2xl text-white">Inscription</h1>
+    </div>
 
-    {{ form_errors(registrationForm) }}
+    {{ form_errors(registrationForm ) }}
 
-    {{ form_start(registrationForm) }}
-        {{ form_row(registrationForm.email) }}
-        {{ form_row(registrationForm.plainPassword, {
-            label: 'Password'
-        }) }}
-        {{ form_row(registrationForm.agreeTerms) }}
+    {{ form_start(registrationForm, { 'attr': {'class': 'flex flex-col gap-8 w-full'} }) }}
+        {{ form_row(registrationForm.email, {'label': false, 'attr': {'class': 'w-full bg-black text-center text-white p-8', 'placeholder': 'Entrez votre email'} }) }}
+        {{ form_row(registrationForm.pseudos, {'label': false, 'attr': {'class': 'w-full bg-black text-center text-white p-8', 'placeholder': 'Entrez votre pseudos'} }) }}
+        {{ form_row(registrationForm.plainPassword, {'label': false, 'attr': {'class': 'w-full bg-black text-center text-white p-8', 'placeholder': 'Entrez votre mots de passe'} }) }}
+        <div class="flex flex-col items-center justify-center gap-4">
+            <label for="{{ registrationForm.agreeTerms.vars.id }}" class="text-white text-lg">J’accepte les conditions d’utilisation</label>
+            {{ form_widget(registrationForm.agreeTerms, {'attr': {'class': 'w-6 h-6'} }) }}
+        </div>
 
-        <button type="submit" class="btn">Register</button>
+    <div class="bg-black flex items-center justify-center w-full p-8 my-8">
+        <button type="submit" class="btn text-center text-2xl text-white">Register</button>
+    </div>
+</div>
     {{ form_end(registrationForm) }}
 {% endblock %}

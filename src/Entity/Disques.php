@@ -18,7 +18,7 @@ class Disques
 
     #[ORM\ManyToOne]
     #[ORM\JoinColumn(nullable: false)]
-    private ?set $ensemble = null;
+    private ?Set $ensemble = null;
 
     #[ORM\Column(enumType: Emplacement::class)]
     private ?Emplacement $emplacement = null;

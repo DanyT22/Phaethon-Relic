@@ -15,35 +15,35 @@ class Builds
 
     #[ORM\ManyToOne]
     #[ORM\JoinColumn(nullable: false)]
-    private ?user $user = null;
+    private ?User $user = null;
 
     #[ORM\ManyToOne]
     #[ORM\JoinColumn(nullable: false)]
-    private ?personnages $personnage = null;
+    private ?Personnages $personnage = null;
 
     #[ORM\ManyToOne]
     #[ORM\JoinColumn(nullable: false)]
-    private ?disques $disque1 = null;
+    private ?Disques $disque1 = null;
 
     #[ORM\ManyToOne]
     #[ORM\JoinColumn(nullable: false)]
-    private ?disques $disque2 = null;
+    private ?Disques $disque2 = null;
 
     #[ORM\ManyToOne]
     #[ORM\JoinColumn(nullable: false)]
-    private ?disques $disque3 = null;
+    private ?Disques $disque3 = null;
 
     #[ORM\ManyToOne]
     #[ORM\JoinColumn(nullable: false)]
-    private ?disques $disque4 = null;
+    private ?Disques $disque4 = null;
 
     #[ORM\ManyToOne]
     #[ORM\JoinColumn(nullable: false)]
-    private ?disques $disque5 = null;
+    private ?Disques $disque5 = null;
 
     #[ORM\ManyToOne]
     #[ORM\JoinColumn(nullable: false)]
-    private ?disques $disque6 = null;
+    private ?Disques $disque6 = null;
 
     public function getId(): ?int
     {
