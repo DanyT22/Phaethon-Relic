@@ -27,3 +27,7 @@ body {
 .NoElements {
     background-color: hsl(0, 0%, 0%, 0.6);
 }
+
+.erreur {
+    background-color: hsla(0, 100%, 50%, 0.40);
+}
