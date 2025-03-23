@@ -25,6 +25,10 @@ final class BuildsController extends AbstractController
     #[Route('/new', name: 'app_builds_new', methods: ['GET', 'POST'])]
     public function new(Request $request, EntityManagerInterface $entityManager): Response
     {
+        if (!$this->getUser()) {
+            return $this->redirectToRoute('app_connexion_inscription');
+        }
+
         $build = new Builds();
         $form = $this->createForm(BuildsType::class, $build);
         $form->handleRequest($request);

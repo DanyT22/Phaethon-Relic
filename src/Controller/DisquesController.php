@@ -25,6 +25,10 @@ final class DisquesController extends AbstractController
     #[Route('/new', name: 'app_disques_new', methods: ['GET', 'POST'])]
     public function new(Request $request, EntityManagerInterface $entityManager): Response
     {
+        if (!$this->getUser()) {
+            return $this->redirectToRoute('app_connexion_inscription');
+        }
+
         $disque = new Disques();
         $form = $this->createForm(DisquesType::class, $disque);
         $form->handleRequest($request);

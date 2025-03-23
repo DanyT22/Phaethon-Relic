@@ -20,12 +20,14 @@
         {{ form_row(registrationForm.pseudos, {'label': false, 'attr': {'class': 'w-full bg-black text-center text-white p-8', 'placeholder': 'Entrez votre pseudos'} }) }}
 
         {{ form_row(registrationForm.plainPassword.first, {'label': false, 'errors': false, 'attr': {'class': 'w-full bg-black text-center text-white p-8', 'placeholder': 'Entrez votre mot de passe'} }) }}
-        <div class= "erreur">
+        <div class= "text-red-500">
             {{ form_errors(registrationForm.plainPassword.first) }}
         </div>
 
         {{ form_row(registrationForm.plainPassword.second, {'label': false,'errors': false, 'attr': {'class': 'w-full bg-black text-center text-white p-8', 'placeholder': 'Confirmer le mot de passe'} }) }}
-        {{ form_errors(registrationForm.plainPassword.second) }}
+        <div class= "text-red-500">
+            {{ form_errors(registrationForm.plainPassword.second) }}
+        </div>
 
         <div class="flex flex-col items-center justify-center gap-4">
             <label for="{{ registrationForm.agreeTerms.vars.id }}" class="text-white text-lg">J’accepte les conditions d’utilisation</label>
@@ -36,5 +38,6 @@
         <button type="submit" class="btn text-center text-2xl text-white">Inscription</button>
     </div>
 </div>
+
     {{ form_end(registrationForm) }}
 {% endblock %}
