@@ -4,11 +4,15 @@
 
 {% block body %}
 
+    <div class="bg-black flex items-center justify-center p-8 my-8">
+        <h1 class="text-center text-2xl text-white"> Disques </h1>
+    </div>
+
     <div class="filtre"> </div>
 
 <a href="{{ path('app_disques_new') }}">
-    <div class="bg-black flex items-center justify-center w-full p-8 m-8">
-        <p class="text-center text-2xl text-white">Create new</p>
+    <div class="bg-black flex items-center justify-center w-full p-8 my-8">
+        <p class="text-center text-2xl text-white">Ajouter un disques.</p>
     </div>
 </a>
 
@@ -30,7 +34,7 @@
                 </td>
             </tr>
             {% else %}
-                <p>no records found</p>
+                <p>Vous n'avez ajouté aucun build.</p>
         {% endfor %}
         </tbody>
     </table>

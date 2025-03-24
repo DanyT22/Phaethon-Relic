@@ -2,9 +2,11 @@
 <html>
     <head>
         <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>{% block title %}Phaethon Relic{% endblock %}</title>
         <link rel="icon" href="{{ asset('images/logo/Logo.png') }}">
         {% block stylesheets %}
+            <link rel="stylesheet" href="/build/app.css?v=1.0">
             {{ encore_entry_link_tags('app') }}
         {% endblock %}
 
@@ -13,11 +15,12 @@
         {% endblock %}
     </head>
     <body>
+    
     <header class="bg-black flex justify-between items-center px-16 py-4 mb-8">
         <a href="{{ path('app_home') }}">
             <img src="{{ asset('images/logo/Logo.png') }}" alt="logo" class="w-24">
         </a>
-        <nav class="flex gap-[5%]">
+        <nav class="flex gap-[5%] size-fit">
             <a href="{{ path('app_personnages_index') }}" class="text-white">Personages</a>
             <a href="{{ path('app_moteurs_index') }}" class="text-white">Moteurs</a>
             <a href="{{ path('app_bangboos_index') }}" class="text-white">Bangboos</a>

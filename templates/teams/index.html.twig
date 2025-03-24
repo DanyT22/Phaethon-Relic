@@ -3,11 +3,15 @@
 {% block title %}Teams index{% endblock %}
 
 {% block body %}
+    <div class="bg-black flex items-center justify-center p-8 my-8">
+        <p class="text-center text-2xl text-white"> Teams </p>
+    </div>
+
     <div class="filtre"> </div>
 
     <a href="{{ path('app_teams_new') }}">
-    <div class="bg-black flex items-center justify-center w-full p-8 m-8">
-        <p class="text-center text-2xl text-white">Create new</p>
+    <div class="bg-black flex items-center justify-center w-full p-8 my-8">
+        <p class="text-center text-2xl text-white">Créer de nouvelles teams.</p>
     </div>
 </a>
 
@@ -43,7 +47,7 @@
                 </div>
             </a>
         {% else %}
-        <p>Aucune Team creer</p>
+        <p>Vous n'avez pas créé de team.</p>
         {% endfor %}    
         </div>
 
