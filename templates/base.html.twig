@@ -16,28 +16,70 @@
     </head>
     <body>
     
-    <header class="bg-black flex justify-between items-center px-16 py-4 mb-8">
-        <a href="{{ path('app_home') }}">
-            <img src="{{ asset('images/logo/Logo.png') }}" alt="logo" class="w-24">
-        </a>
-        <nav class="flex gap-[5%] size-fit">
-            <a href="{{ path('app_personnages_index') }}" class="text-white">Personages</a>
-            <a href="{{ path('app_moteurs_index') }}" class="text-white">Moteurs</a>
-            <a href="{{ path('app_bangboos_index') }}" class="text-white">Bangboos</a>
-            <a href="{{ path('app_disques_index') }}" class="text-white">Disque</a>
-            <a href="{{ path('app_builds_index') }}" class="text-white">Build</a>
-            <a href="{{ path('app_teams_index') }}" class="text-white">Team</a>
-        </nav>
-        {% if app.user %}
-            <a href="{{ path('app_logout') }}" class="text-white">Déconnexion</a>
-        {% else %}
-            <a href="{{ path('app_connexion_inscription')}}" class="text-white">Connexion/Inscription</a>
-        {% endif %}
+    <header class="">
+
+{# Menu navigateur #}
+
+        <div class="bg-black hidden md:flex fixed top-0 justify-between items-center w-full px-16 py-4 mb-8">
+            <a href="{{ path('app_home') }}">
+                <img src="{{ asset('images/logo/Logo.png') }}" alt="logo" class="w-24">
+            </a>
+            <nav class="flex gap-[5%] size-fit">
+                <a href="{{ path('app_personnages_index') }}" class="text-white">Personages</a>
+                <a href="{{ path('app_moteurs_index') }}" class="text-white">Moteurs</a>
+                <a href="{{ path('app_bangboos_index') }}" class="text-white">Bangboos</a>
+                <a href="{{ path('app_disques_index') }}" class="text-white">Disque</a>
+                <a href="{{ path('app_builds_index') }}" class="text-white">Build</a>
+                <a href="{{ path('app_teams_index') }}" class="text-white">Team</a>
+            </nav>
+            {% if app.user %}
+                <a href="{{ path('app_logout') }}" class="text-white">Déconnexion</a>
+            {% else %}
+                <a href="{{ path('app_connexion_inscription')}}" class="text-white">Connexion/Inscription</a>
+            {% endif %}
+        </div>
+
+{# Menu burger #}
+
+        <button id="burger-button" class="md:hidden px-1 fixed top-1 z-10">
+            <img src="{{ asset('images/svg/Burger.svg') }}" id="burger-icon" class="w-6 h-6">
+        </button>
+
+        <div id="mobile-menu" class="bg-black hidden flex flex-col items-center justify-center w-full fixed top-0">
+            <a href="{{ path('app_home') }}">
+                <img src="{{ asset('images/logo/Logo.png') }}" alt="logo" class="w-24">
+            </a>
+            <nav class="flex flex-col items-center justify-center gap-[5%] size-fit">
+                <a href="{{ path('app_personnages_index') }}" class="text-white">Personages</a>
+                <a href="{{ path('app_moteurs_index') }}" class="text-white">Moteurs</a>
+                <a href="{{ path('app_bangboos_index') }}" class="text-white">Bangboos</a>
+                <a href="{{ path('app_disques_index') }}" class="text-white">Disque</a>
+                <a href="{{ path('app_builds_index') }}" class="text-white">Build</a>
+                <a href="{{ path('app_teams_index') }}" class="text-white">Team</a>
+            </nav>
+            {% if app.user %}
+                <a href="{{ path('app_logout') }}" class="text-white block py-2">Déconnexion</a>
+            {% else %}
+                <a href="{{ path('app_connexion_inscription')}}" class="text-white block py-2">Connexion/Inscription</a>
+            {% endif %}
+        </div>
+
     </header>
-    <main class="px-[10%] min-h-[80vh]">
+    <main class="md:mt-[150px] px-[10%] min-h-[80vh]">
         {% block body %}{% endblock %}
     </main>
     <footer class="bg-black h-24 mt-8">
     </footer>
+        <script>
+        const burgerButton = document.getElementById("burger-button");
+        const burgerIcon = document.getElementById("burger-icon");
+        const mobileMenu = document.getElementById("mobile-menu");
+
+        burgerButton.addEventListener("click", () => {
+            mobileMenu.classList.toggle("hidden");
+            const isHidden = mobileMenu.classList.contains("hidden");
+            burgerIcon.src = isHidden ? "{{ asset('images/svg/Burger.svg') }}" : "{{ asset('images/svg/X.svg') }}";
+        });
+    </script>
     </body>
 </html>
