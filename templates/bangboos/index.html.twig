@@ -8,7 +8,16 @@
         <h1 class="text-center text-2xl text-white"> Bangboos </h1>
     </div>
 
-    <div class="filtre"> </div>
+    <div class="bg-black flex flex-col items-center justify-center gap-2 px-8 py-4 my-8">
+        <div class="flex gap-4">
+            <button>
+                <img src="{{ asset('images/raretes/S.jpg') }}" class= "h-8 w-8">
+            </button>
+            <button>
+                <img src="{{ asset('images/raretes/A.jpg') }}" class= "h-8 w-8">
+            </button>
+        </div>
+    </div>
 
     <div class="grid grid-cols-1 md:grid-cols-3 gap-4 w-full h-full">
         {% for bangboo in bangboos %}

@@ -5,6 +5,9 @@ namespace App\Controller;
 use App\Entity\Personnages;
 use App\Form\PersonnagesType;
 use App\Repository\PersonnagesRepository;
+use App\Repository\ElementsRepository;
+use App\Repository\SpecialitesRepository;
+use App\Repository\FactionsRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -15,12 +18,15 @@ use Symfony\Component\Routing\Attribute\Route;
 final class PersonnagesController extends AbstractController
 {
     #[Route(name: 'app_personnages_index', methods: ['GET'])]
-    public function index(PersonnagesRepository $personnagesRepository): Response
+    public function index(PersonnagesRepository $personnagesRepository, FactionsRepository $factions, SpecialitesRepository $specialites, ElementsRepository $elements): Response
     {
         $personnages = $personnagesRepository->reverse();
 
         return $this->render('personnages/index.html.twig', [
             'personnages' => $personnages,
+            'factions' => $factions->findAll(),
+            'specialites' => $specialites->findAll(),
+            'elements' => $elements->findAll(),
         ]);
     }
 

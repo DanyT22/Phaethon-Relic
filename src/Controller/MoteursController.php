@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\Moteurs;
 use App\Form\MoteursType;
 use App\Repository\MoteursRepository;
+use App\Repository\SpecialitesRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -15,11 +16,12 @@ use Symfony\Component\Routing\Attribute\Route;
 final class MoteursController extends AbstractController
 {
     #[Route(name: 'app_moteurs_index', methods: ['GET'])]
-    public function index(MoteursRepository $moteursRepository): Response
+    public function index(MoteursRepository $moteursRepository, SpecialitesRepository $specialites): Response
     {
         $moteurs = $moteursRepository->reverse();
         return $this->render('moteurs/index.html.twig', [
             'moteurs' => $moteurs,
+            'specialites' => $specialites->findAll(),
         ]);
     }
 

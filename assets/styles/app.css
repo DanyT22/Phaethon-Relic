@@ -27,3 +27,7 @@ body {
 .NoElements {
     background-color: hsl(0, 0%, 0%, 0.6);
 }
+
+.navBar {
+    background-color: hsl(0, 0%, 0%, 0.95);
+}
