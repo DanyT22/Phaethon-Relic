@@ -15,10 +15,6 @@ class TeamsType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('user', EntityType::class, [
-                'class' => user::class,
-                'choice_label' => 'id',
-            ])
             ->add('bangboo', EntityType::class, [
                 'class' => bangboos::class,
                 'choice_label' => 'id',

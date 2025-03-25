@@ -16,11 +16,11 @@
     </head>
     <body>
     
-    <header class="">
+    <header class="fixed w-full top-0">
 
 {# Menu navigateur #}
 
-        <div class="navBar hidden md:flex fixed top-0 justify-between items-center w-full px-16 py-4 mb-8">
+        <div class="navBar hidden md:flex justify-between items-center w-full px-16 py-4 mb-8">
             <a href="{{ path('app_home') }}">
                 <img src="{{ asset('images/logo/Logo.png') }}" alt="logo" class="w-16">
             </a>
@@ -45,7 +45,7 @@
             <img src="{{ asset('images/svg/Burger.svg') }}" id="burger-icon" class="w-6 h-6">
         </button>
 
-        <div id="mobile-menu" class="navBar md:hidden hidden flex flex-col items-center justify-center gap-4 w-full fixed top-0">
+        <div id="mobile-menu" class="navBar md:hidden hidden flex flex-col items-center justify-center gap-4 w-full">
             <a href="{{ path('app_home') }}">
                 <img src="{{ asset('images/logo/Logo.png') }}" alt="logo" class="w-24">
             </a>
@@ -65,10 +65,10 @@
         </div>
 
     </header>
-    <main class="md:mt-[150px] px-[10%] min-h-[80vh]">
+    <main class="md:mt-[130px] px-[10%]">
         {% block body %}{% endblock %}
     </main>
-    <footer class="bg-black h-24 mt-8">
+    <footer class="bg-black absolute bottom-0 w-full h-24 mt-8">
     </footer>
     </body>
 </html>

@@ -30,25 +30,25 @@ class Disques
     private ?SubStat $subStat1 = null;
 
     #[ORM\Column]
-    private ?int $procSubStat1 = null;
+    private ?int $valeurSubStat1 = null;
 
     #[ORM\Column(enumType: SubStat::class)]
     private ?SubStat $subStat2 = null;
 
     #[ORM\Column]
-    private ?int $procSubStat2 = null;
+    private ?int $valeurSubStat2 = null;
 
     #[ORM\Column(enumType: SubStat::class)]
     private ?SubStat $subStat3 = null;
 
     #[ORM\Column]
-    private ?int $procSubStat3 = null;
+    private ?int $valeurSubStat3 = null;
 
     #[ORM\Column(enumType: SubStat::class)]
     private ?SubStat $subStat4 = null;
 
     #[ORM\Column]
-    private ?int $procSubStat4 = null;
+    private ?int $valeurSubStat4 = null;
 
     public function getId(): ?int
     {
@@ -103,14 +103,14 @@ class Disques
         return $this;
     }
 
-    public function getProcSubStat1(): ?int
+    public function getValeurSubStat1(): ?int
     {
-        return $this->procSubStat1;
+        return $this->valeurSubStat1;
     }
 
-    public function setProcSubStat1(int $procSubStat1): static
+    public function setValeurSubStat1(int $valeurSubStat1): static
     {
-        $this->procSubStat1 = $procSubStat1;
+        $this->valeurSubStat1 = $valeurSubStat1;
 
         return $this;
     }
@@ -127,14 +127,14 @@ class Disques
         return $this;
     }
 
-    public function getProcSubStat2(): ?int
+    public function getValeurSubStat2(): ?int
     {
-        return $this->procSubStat2;
+        return $this->valeurSubStat2;
     }
 
-    public function setProcSubStat2(int $procSubStat2): static
+    public function setValeurSubStat2(int $valeurSubStat2): static
     {
-        $this->procSubStat2 = $procSubStat2;
+        $this->valeurSubStat2 = $valeurSubStat2;
 
         return $this;
     }
@@ -151,14 +151,14 @@ class Disques
         return $this;
     }
 
-    public function getProcSubStat3(): ?int
+    public function getValeurSubStat3(): ?int
     {
-        return $this->procSubStat3;
+        return $this->valeurSubStat3;
     }
 
-    public function setProcSubStat3(int $procSubStat3): static
+    public function setValeurSubStat3(int $valeurSubStat3): static
     {
-        $this->procSubStat3 = $procSubStat3;
+        $this->valeurSubStat3 = $valeurSubStat3;
 
         return $this;
     }
@@ -175,14 +175,14 @@ class Disques
         return $this;
     }
 
-    public function getProcSubStat4(): ?int
+    public function getValeurSubStat4(): ?int
     {
-        return $this->procSubStat4;
+        return $this->valeurSubStat4;
     }
 
-    public function setProcSubStat4(int $procSubStat4): static
+    public function setValeurSubStat4(int $valeurSubStat4): static
     {
-        $this->procSubStat4 = $procSubStat4;
+        $this->valeurSubStat4 = $valeurSubStat4;
 
         return $this;
     }

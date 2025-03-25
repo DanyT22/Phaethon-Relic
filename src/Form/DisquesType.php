@@ -3,7 +3,7 @@
 namespace App\Form;
 
 use App\Entity\Disques;
-use App\Entity\set;
+use App\Entity\Set;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -17,13 +17,13 @@ class DisquesType extends AbstractType
             ->add('emplacement')
             ->add('mainStat')
             ->add('subStat1')
-            ->add('procSubStat1')
+            ->add('valeurSubStat1')
             ->add('subStat2')
-            ->add('procSubStat2')
+            ->add('valeurSubStat2')
             ->add('subStat3')
-            ->add('procSubStat3')
+            ->add('valeurSubStat3')
             ->add('subStat4')
-            ->add('procSubStat4')
+            ->add('valeurSubStat4')
             ->add('ensemble', EntityType::class, [
                 'class' => set::class,
                 'choice_label' => 'id',

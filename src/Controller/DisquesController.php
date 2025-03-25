@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Disques;
+use App\Entity\DisquesObtenu;
 use App\Form\DisquesType;
 use App\Repository\DisquesRepository;
 use Doctrine\ORM\EntityManagerInterface;
@@ -25,7 +26,9 @@ final class DisquesController extends AbstractController
     #[Route('/new', name: 'app_disques_new', methods: ['GET', 'POST'])]
     public function new(Request $request, EntityManagerInterface $entityManager): Response
     {
-        if (!$this->getUser()) {
+        $user = $this->getUser();
+
+        if (!$user) {
             return $this->redirectToRoute('app_connexion_inscription');
         }
 
@@ -35,6 +38,13 @@ final class DisquesController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager->persist($disque);
+            // $entityManager->flush();
+
+            $disqueObtenus = new DisquesObtenu();
+            $disqueObtenus->setDisque($disque);
+            $disqueObtenus->setUser($user);
+
+            $entityManager->persist($disqueObtenus);
             $entityManager->flush();
 
             return $this->redirectToRoute('app_disques_index', [], Response::HTTP_SEE_OTHER);
