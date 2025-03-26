@@ -1,4 +1,56 @@
-{{ form_start(form) }}
-    {{ form_widget(form) }}
-    <button class="btn">{{ button_label|default('Save') }}</button>
+{{ form_start(form, { 'attr': {'class': 'flex flex-col gap-8 w-full text-white'}}) }}
+
+    <div class='flex flex-col md:flex-row items-center justify-center gap-4 w-full'>
+        <div class='bg-black flex flex-col items-center justify-center gap-2 w-full md:w-1/2 p-2'>
+            <p>Ensemble</p>
+            {{ form_row(form.ensemble, {'label': false}) }}
+        </div>
+
+        <div class='bg-black flex flex-col items-center justify-center gap-2 w-full md:w-1/2 p-2'>
+            <p>Emplacement</p>
+            {{ form_row(form.emplacement, {'label': false})}}
+        </div>
+    </div>
+
+    <div class='bg-black flex items-center justify-center gap-4 w-full p-4'>
+        <img src="{{ asset('images/set/Metal_mordant.jpg') }}" class="w-24 h-24">
+    </div>
+
+    <div class='bg-black flex flex-col items-center justify-center w-full gap-2 p-6'>
+        <p>Main stat</p>
+        {{ form_row(form.mainStat, {'label': false})}}
+    </div>
+
+    <div class="flex flex-col md:flex-row items-center justify-center gap-4 w-full">
+        <div class='bg-black flex flex-col items-center justify-center gap-2 w-full md:w-1/2 p-2'>
+            <p>Sub stat 1</p>
+            {{ form_row(form.subStat1, {'label': false})}}
+            {{ form_row(form.valeurSubStat1, {'label': false, 'attr' : {'placeholder': 'Valeur sub stat 1'}})}}
+        </div>
+
+        <div class='bg-black flex flex-col items-center justify-center gap-2 w-full md:w-1/2 p-2'>
+            <p>Sub stat 2</p>
+            {{ form_row(form.subStat2, {'label': false})}}
+            {{ form_row(form.valeurSubStat2, {'label': false, 'attr' : {'placeholder': 'Valeur sub stat 2'}})}}
+        </div>
+    </div>
+
+    <div class="flex flex-col md:flex-row items-center justify-center gap-4 w-full">
+        <div class='bg-black flex flex-col items-center justify-center gap-2 w-full md:w-1/2 p-2'>
+            <p>Sub stat 3</p>
+            {{ form_row(form.subStat3, {'label': false})}}
+            {{ form_row(form.valeurSubStat3, {'label': false, 'attr' : {'placeholder': 'Valeur sub stat 3'}})}}
+        </div>
+
+        <div class='bg-black flex flex-col items-center justify-center gap-2 w-full md:w-1/2 p-2'>
+            <p>Sub stat 4</p>
+            {{ form_row(form.subStat4, {'label': false})}}
+            {{ form_row(form.valeurSubStat4, {'label': false, 'attr' : {'placeholder': 'Valeur sub stat 4'}})}}
+        </div>
+    </div>
+
+    <div class="bg-black flex items-center justify-center w-full p-8 my-4">
+        <button class="btn">{{ button_label|default('Save') }}</button>
+    </div>
+
 {{ form_end(form) }}

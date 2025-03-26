@@ -14,7 +14,7 @@ enum mainStat: string {
     case Adresse_d_anomalie = "Adresse d'anomalie";
     case Taux_PEN = "Taux de PEN";
     case DGT_Physiques = "DGT physique";
-    case DGT_Feu = "DGT feu";
+    case DGT_Feu = "DGT Feu";
     case DGT_glace = "DGT glace";
     case DGT_electrique = "DGT electriques";
     case DGT_etheriques = "DGT etheriques";

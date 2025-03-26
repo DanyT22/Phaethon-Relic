@@ -18,6 +18,10 @@ final class DisquesController extends AbstractController
     #[Route(name: 'app_disques_index', methods: ['GET'])]
     public function index(DisquesRepository $disquesRepository): Response
     {
+        if (!$this->getUser()) {
+            return $this->redirectToRoute('app_connexion_inscription');
+        }
+
         return $this->render('disques/index.html.twig', [
             'disques' => $disquesRepository->findAll(),
         ]);
@@ -27,10 +31,6 @@ final class DisquesController extends AbstractController
     public function new(Request $request, EntityManagerInterface $entityManager): Response
     {
         $user = $this->getUser();
-
-        if (!$user) {
-            return $this->redirectToRoute('app_connexion_inscription');
-        }
 
         $disque = new Disques();
         $form = $this->createForm(DisquesType::class, $disque);
