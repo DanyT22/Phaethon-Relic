@@ -3,6 +3,7 @@
 namespace App\Repository;
 
 use App\Entity\Disques;
+use App\Entity\User;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
@@ -15,6 +16,19 @@ class DisquesRepository extends ServiceEntityRepository
     {
         parent::__construct($registry, Disques::class);
     }
+
+    public function findUserDisquesByEmplacement(User $user, int $emplacement): array
+    {
+        return $this->createQueryBuilder('d')
+            ->join('App\Entity\DisquesObtenu', 'do', 'WITH', 'd.id = do.disque')
+            ->where('do.user = :user')
+            ->andWhere('d.emplacement = :emplacement')
+            ->setParameter('user', $user)
+            ->setParameter('emplacement', $emplacement)
+            ->getQuery()
+            ->getResult();
+    }
+
 
 //    /**
 //     * @return Disques[] Returns an array of Disques objects

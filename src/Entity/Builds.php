@@ -45,6 +45,10 @@ class Builds
     #[ORM\JoinColumn(nullable: false)]
     private ?Disques $disque6 = null;
 
+    #[ORM\ManyToOne]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?Moteurs $Moteur = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -142,6 +146,18 @@ class Builds
     public function setDisque6(?disques $disque6): static
     {
         $this->disque6 = $disque6;
+
+        return $this;
+    }
+
+    public function getMoteur(): ?Moteurs
+    {
+        return $this->Moteur;
+    }
+
+    public function setMoteur(?Moteurs $Moteur): static
+    {
+        $this->Moteur = $Moteur;
 
         return $this;
     }

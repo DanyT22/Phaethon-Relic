@@ -15,7 +15,7 @@ class DisquesObtenu
 
     #[ORM\ManyToOne]
     #[ORM\JoinColumn(nullable: false)]
-    private ?disques $disque = null;
+    private ?Disques $disque = null;
 
     #[ORM\ManyToOne]
     #[ORM\JoinColumn(nullable: false)]
