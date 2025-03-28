@@ -1,4 +1,41 @@
-{{ form_start(form) }}
-    {{ form_widget(form) }}
-    <button class="btn">{{ button_label|default('Save') }}</button>
+{{ form_start(form, { 'attr': {'class': 'flex flex-col gap-8 w-full text-white'}}) }}
+    <div class='bg-black flex flex-row items-center justify-center gap-4 w-full p-8'>
+        <div class="flex items-center justify-center w-1/4">
+            <p>Pseudos : </p>
+        </div>
+        <div class="flex items-center justify-center w-3/4">
+            {{ form_row(form.pseudos, {'label': false}) }}
+        </div>
+    </div>
+
+    <div class='bg-black flex flex-row items-center justify-center gap-4 w-full p-8'>
+        <div class="flex items-center justify-center w-1/4">
+            <p>Email : </p>
+        </div>
+        <div class="flex items-center justify-center w-3/4">
+            {{ form_row(form.email, {'label': false, 'attr' : {'class' : 'w-full'}}) }}
+        </div>
+    </div>
+
+    <div class='bg-black flex flex-row items-center justify-center gap-4 w-full p-8'>
+        <div class="flex items-center justify-center w-1/4">
+            <p>Mot de passe actuel : </p>
+        </div>
+        <div class="flex items-center justify-center w-3/4">
+            {{ form_row(form.oldPassword, {'label': false, 'attr' : {'class' : 'w-full', 'placeholder' : "Vous devez entrer votre mot de passe actuel afin de pouvoir le modifier."}}) }}
+        </div>
+    </div>
+
+    <div class='bg-black flex flex-row items-center justify-center gap-4 w-full p-8'>
+        <div class="flex items-center justify-center w-1/4">
+            <p>Nouveaux mot de passe : </p>
+        </div>
+        <div class="flex items-center justify-center w-3/4">
+            {{ form_row(form.newPassword, {'label': false, 'attr' : {'class' : 'w-full', 'placeholder' : "Vous devez entrer votre mot de passe actuel afin de pouvoir le modifier."}}) }}
+        </div>
+    </div>
+
+    <div class="bg-black flex items-center justify-center w-full p-8 my-4">
+        <button class="btn">{{ button_label|default('Save') }}</button>
+    </div>
 {{ form_end(form) }}
