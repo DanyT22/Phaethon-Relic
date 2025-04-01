@@ -4,10 +4,13 @@ namespace App\Form;
 
 use App\Entity\Disques;
 use App\Entity\Set;
+use App\Enum\Emplacement;
+use App\Enum\mainStat;
+use App\Enum\SubStat;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\EnumType;
-use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\Extension\Core\Type\NumberType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -22,98 +25,49 @@ class DisquesType extends AbstractType
                 'class' => set::class,
                 'choice_label' => 'nomSet',
             ])
-            ->add('emplacement', ChoiceType::class, [
-                'choices' => [
-                    '1' => 1,
-                    '2' => 2,
-                    '3' => 3,
-                    '4' => 4,
-                    '5' => 5,
-                    '6' => 6,
-                ],
+            ->add('emplacement', EnumType::class, [
+                'class' => Emplacement::class,
+                'choice_label' => fn (Emplacement $choice) => $choice->value,
             ])
-            ->add('mainStat', ChoiceType::class, [
-                'choices' => [
-                    "PV" => "PV",
-                    "PV%" => "PV%",
-                    "ATQ" => "ATQ",
-                    "ATQ%" => "ATQ%",
-                    "DEF" => "DEF",
-                    "DEF%" => "DEF%",
-                    "Taux CRIT" => "Taux CRIT",
-                    "DGT CRIT" => "DGT CRIT",
-                    "Adresse d'anomalie" => "Adresse d'anomalie",
-                    "Taux de PEN" => "Taux de PEN",
-                    "DGT physique" => "DGT physique",
-                    "DGT Feu" => "DGT Feu",
-                    "DGT glace" => "DGT glace",
-                    "DGT electriques" => "DGT electriques",
-                    "DGT etheriques" => "DGT etheriques",
-                    "Maitrise d'anomalie" => "Maitrise d'anomalie",
-                    "Impact" => "Impact",
-                    "Recuperation d'energie" => "Recuperation d'energie",
-                ]
+            ->add('mainStat', EnumType::class, [
+                'class' => mainStat::class,
+                'choice_label' => fn (mainStat $choice) => $choice->value,
             ])
-            ->add('subStat1', ChoiceType::class, [
-                'choices' => [
-                    "PV" => "PV",
-                    "PV%" => "PV%",
-                    "ATQ" => "ATQ",
-                    "ATQ%" => "ATQ%",
-                    "DEF" => "DEF",
-                    "DEF%" => "DEF%",
-                    "PEN" => "PEN",
-                    "Taux CRIT" => "Taux CRIT",
-                    "DGT CRIT" => "DGT CRIT",
-                    "Adresse d'anomalie" => "Adresse d'anomalie",
-                ]
+            ->add('subStat1', EnumType::class, [
+                'class' => SubStat::class,
+                'choice_label' => fn (SubStat $choice) => $choice->value,
             ])
-            ->add('valeurSubStat1')
-            ->add('subStat2', ChoiceType::class, [
-                'choices' => [
-                    "PV" => "PV",
-                    "PV%" => "PV%",
-                    "ATQ" => "ATQ",
-                    "ATQ%" => "ATQ%",
-                    "DEF" => "DEF",
-                    "DEF%" => "DEF%",
-                    "PEN" => "PEN",
-                    "Taux CRIT" => "Taux CRIT",
-                    "DGT CRIT" => "DGT CRIT",
-                    "Adresse d'anomalie" => "Adresse d'anomalie",
-                ]
+            ->add('valeurSubStat1', NumberType::class, [
+                'scale' => 2,
+                'html5' => true,
             ])
-            ->add('valeurSubStat2')
-            ->add('subStat3', ChoiceType::class, [
-                'choices' => [
-                    "PV" => "PV",
-                    "PV%" => "PV%",
-                    "ATQ" => "ATQ",
-                    "ATQ%" => "ATQ%",
-                    "DEF" => "DEF",
-                    "DEF%" => "DEF%",
-                    "PEN" => "PEN",
-                    "Taux CRIT" => "Taux CRIT",
-                    "DGT CRIT" => "DGT CRIT",
-                    "Adresse d'anomalie" => "Adresse d'anomalie",
-                ]
+
+            ->add('subStat2', EnumType::class, [
+                'class' => SubStat::class,
+                'choice_label' => fn (SubStat $choice) => $choice->value,
             ])
-            ->add('valeurSubStat3')
-            ->add('subStat4', ChoiceType::class, [
-                'choices' => [
-                    "PV" => "PV",
-                    "PV%" => "PV%",
-                    "ATQ" => "ATQ",
-                    "ATQ%" => "ATQ%",
-                    "DEF" => "DEF",
-                    "DEF%" => "DEF%",
-                    "PEN" => "PEN",
-                    "Taux CRIT" => "Taux CRIT",
-                    "DGT CRIT" => "DGT CRIT",
-                    "Adresse d'anomalie" => "Adresse d'anomalie",
-                ]
+            ->add('valeurSubStat2', NumberType::class, [
+                'scale' => 2,
+                'html5' => true,
             ])
-            ->add('valeurSubStat4')
+
+            ->add('subStat3', EnumType::class, [
+                'class' => SubStat::class,
+                'choice_label' => fn (SubStat $choice) => $choice->value,
+            ])
+            ->add('valeurSubStat3', NumberType::class, [
+                'scale' => 2,
+                'html5' => true,
+            ])
+
+            ->add('subStat4', EnumType::class, [
+                'class' => SubStat::class,
+                'choice_label' => fn (SubStat $choice) => $choice->value,
+            ])
+            ->add('valeurSubStat4', NumberType::class, [
+                'scale' => 2,
+                'html5' => true,
+            ]);
         ;
     }
 

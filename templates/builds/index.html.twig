@@ -18,8 +18,8 @@
 
         <div class="">
         {% for build in builds %}
-            <a href="{{ path('app_build_show', {'id': build.id}) }}">
-                <div class="{{ build.personnage.element.nomElement }}">
+            <a href="{{ path('app_builds_show', {'id': build.id}) }}">
+                {# <div class="{{ build.personnage.element.nomElement }}">
                     <div>
                         <img href="{{ build.personnage.icon }}">
                         <img href="{{ build.moteur.icon }}">
@@ -43,7 +43,7 @@
                         <p> effet set </p>
                         <p> effet set </p>
                     </div>
-                </div>
+                </div> #}
             </a>
         {% else %}
                 <p>Vous n'avez créé aucun build.</p>

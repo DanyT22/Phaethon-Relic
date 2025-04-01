@@ -28,12 +28,14 @@ final class BuildsController extends AbstractController
         if (!$this->getUser()) {
             return $this->redirectToRoute('app_connexion_inscription');
         }
+        $user = $this->getUser();
 
         $build = new Builds();
         $form = $this->createForm(BuildsType::class, $build);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $build->setUser($user);
             $entityManager->persist($build);
             $entityManager->flush();
 
