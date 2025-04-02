@@ -19,7 +19,7 @@ class DisquesObtenu
 
     #[ORM\ManyToOne]
     #[ORM\JoinColumn(nullable: false)]
-    private ?user $user = null;
+    private ?User $user = null;
 
     public function getId(): ?int
     {

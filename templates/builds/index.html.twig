@@ -16,35 +16,31 @@
     </div>
 </a>
 
-        <div class="">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 w-full h-full">
         {% for build in builds %}
+
             <a href="{{ path('app_builds_show', {'id': build.id}) }}">
-                {# <div class="{{ build.personnage.element.nomElement }}">
-                    <div>
-                        <img href="{{ build.personnage.icon }}">
-                        <img href="{{ build.moteur.icon }}">
+                <div class="{{ build.personnage.element.element }} flex w-full p-[2%] gap-2">
+                    <div class="flex items-center justify-around min-h-full w-1/2">
+                        <img src="{{ asset('images/icon/' ~ build.personnage.nomPersonnage|replace({' ': '_'}) ~ '.jpg') }}" class="w-20 md:w-24 lg:w-26 rounded-lg">
+                        <img src="{{ asset('images/moteurs/' ~ build.moteur.nomMoteur|replace({' ': '_'}) ~ '.jpg') }}" class="w-18 md:w-20 lg:w-24">
                     </div>
-                    <div>
-                        <img href="{{ build.disque1.icon }}">
-                        <img href="1">
-                        <img href="{{ build.disque2.icon }}">
-                        <img href="2">
-                        <img href="{{ build.disque3.icon }}">
-                        <img href="3">
-                        <img href="{{ build.disque4.icon }}">
-                        <img href="4">
-                        <img href="{{ build.disque5.icon }}">
-                        <img href="5">
-                        <img href="{{ build.disque6.icon }}">
-                        <img href="6">
+
+                    <div class='flex flex-col justify-between gap-2 w-1/2'>
+                        <div class='flex justify-around items-center h-full w-full'>
+                            <img src="{{ asset('images/set/' ~ build.disque1.ensemble.nomSet|replace({' ': '_'}) ~ '.jpg') }}" class='w-10 lg:w-14 h-10 lg:h-14'>
+                            <img src="{{ asset('images/set/' ~ build.disque2.ensemble.nomSet|replace({' ': '_'}) ~ '.jpg') }}" class='w-10 lg:w-14 h-10 lg:h-14'>
+                            <img src="{{ asset('images/set/' ~ build.disque3.ensemble.nomSet|replace({' ': '_'}) ~ '.jpg') }}" class='w-10 lg:w-14 h-10 lg:h-14'>
+                        </div>
+                        <div class='flex justify-around items-center h-full w-full'>
+                            <img src="{{ asset('images/set/' ~ build.disque4.ensemble.nomSet|replace({' ': '_'}) ~ '.jpg') }}" class='w-10 lg:w-14 h-10 lg:h-14'>
+                            <img src="{{ asset('images/set/' ~ build.disque5.ensemble.nomSet|replace({' ': '_'}) ~ '.jpg') }}" class='w-10 lg:w-14 h-10 lg:h-14'>
+                            <img src="{{ asset('images/set/' ~ build.disque6.ensemble.nomSet|replace({' ': '_'}) ~ '.jpg') }}" class='w-10 lg:w-14 h-10 lg:h-14'>
+                        </div>
                     </div>
-                    <div>
-                        <p> effet set </p>
-                        <p> effet set </p>
-                        <p> effet set </p>
-                    </div>
-                </div> #}
+                </div>
             </a>
+
         {% else %}
                 <p>Vous n'avez créé aucun build.</p>
         {% endfor %}

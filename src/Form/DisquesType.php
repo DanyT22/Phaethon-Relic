@@ -33,6 +33,7 @@ class DisquesType extends AbstractType
                 'class' => mainStat::class,
                 'choice_label' => fn (mainStat $choice) => $choice->value,
             ])
+
             ->add('subStat1', EnumType::class, [
                 'class' => SubStat::class,
                 'choice_label' => fn (SubStat $choice) => $choice->value,
@@ -40,6 +41,7 @@ class DisquesType extends AbstractType
             ->add('valeurSubStat1', NumberType::class, [
                 'scale' => 2,
                 'html5' => true,
+                'attr' => ['autocomplete' => 'off']
             ])
 
             ->add('subStat2', EnumType::class, [
@@ -49,6 +51,7 @@ class DisquesType extends AbstractType
             ->add('valeurSubStat2', NumberType::class, [
                 'scale' => 2,
                 'html5' => true,
+                'attr' => ['autocomplete' => 'off']
             ])
 
             ->add('subStat3', EnumType::class, [
@@ -58,6 +61,7 @@ class DisquesType extends AbstractType
             ->add('valeurSubStat3', NumberType::class, [
                 'scale' => 2,
                 'html5' => true,
+                'attr' => ['autocomplete' => 'off']
             ])
 
             ->add('subStat4', EnumType::class, [
@@ -67,6 +71,7 @@ class DisquesType extends AbstractType
             ->add('valeurSubStat4', NumberType::class, [
                 'scale' => 2,
                 'html5' => true,
+                'attr' => ['autocomplete' => 'off']
             ]);
         ;
     }

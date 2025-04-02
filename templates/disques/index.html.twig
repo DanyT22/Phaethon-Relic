@@ -18,7 +18,7 @@
 
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 w-full h-full">
         {% for disque in disques %}
-            <a href="{{ path('app_disques_show', {'id': disque.id}) }}">
+            <a href="{{ path('app_disques_edit', {'id': disque.id}) }}">
                 <div class="NoElements flex w-full p-[2%]">
                     <div class="relative flex items-center justify-center min-h-full w-1/4">
                         <img src="{{ asset('images/set/' ~ disque.ensemble.nomSet|replace({' ': '_'}) ~ '.jpg') }}" class="w-24">
@@ -31,7 +31,6 @@
                         </div>
 
                         <div class="flex flex-col justify-around h-full w-full">
-                            {# <div class="flex flex-row"> #}
                                 <div class="flex flex-col w-full">
                                     <p class="text-center text-white truncate"> {{ disque.subStatString1 }} : </p>
                                     <p class="text-center text-white truncate"> {{ disque.valeurSubStat1 }} </p>
@@ -40,8 +39,6 @@
                                     <p class="text-center text-white truncate"> {{ disque.subStatString2 }} : </p>
                                     <p class="text-center text-white truncate"> {{ disque.valeurSubStat2 }} </p>
                                 </div>
-                            {# </div>
-                            <div class="flex flex-row"> #}
                                 <div class="flex flex-col w-full">
                                     <p class="text-center text-white truncate"> {{ disque.subStatString3 }} : </p>
                                     <p class="text-center text-white truncate"> {{ disque.valeurSubStat3 }} </p>
@@ -50,7 +47,6 @@
                                     <p class="text-center text-white truncate"> {{ disque.subStatString4 }} : </p>
                                     <p class="text-center text-white truncate"> {{ disque.valeurSubStat4 }} </p>
                                 </div>
-                            {# </div> #}
                         </div>
                     </div>
                 </div>

@@ -17,8 +17,13 @@ final class BuildsController extends AbstractController
     #[Route(name: 'app_builds_index', methods: ['GET'])]
     public function index(BuildsRepository $buildsRepository): Response
     {
+        if (!$this->getUser()) {
+            return $this->redirectToRoute('app_connexion_inscription');
+        }
+        $user = $this->getUser();
+
         return $this->render('builds/index.html.twig', [
-            'builds' => $buildsRepository->findAll(),
+            'builds' => $buildsRepository->findBuildByUser($user),
         ]);
     }
 
@@ -51,6 +56,16 @@ final class BuildsController extends AbstractController
     #[Route('/{id}', name: 'app_builds_show', methods: ['GET'])]
     public function show(Builds $build): Response
     {
+        $user = $this->getUser();
+
+        if (!$user) {
+            return $this->redirectToRoute('app_connexion_inscription');
+        }
+
+        if ($build->getUser() !== $user){
+            return $this->redirectToRoute('app_builds_index');
+        }
+
         return $this->render('builds/show.html.twig', [
             'build' => $build,
         ]);
@@ -59,6 +74,16 @@ final class BuildsController extends AbstractController
     #[Route('/{id}/edit', name: 'app_builds_edit', methods: ['GET', 'POST'])]
     public function edit(Request $request, Builds $build, EntityManagerInterface $entityManager): Response
     {
+        $user = $this->getUser();
+
+        if (!$user) {
+            return $this->redirectToRoute('app_connexion_inscription');
+        }
+
+        if ($build->getUser() !== $user){
+            return $this->redirectToRoute('app_builds_index');
+        }
+
         $form = $this->createForm(BuildsType::class, $build);
         $form->handleRequest($request);
 

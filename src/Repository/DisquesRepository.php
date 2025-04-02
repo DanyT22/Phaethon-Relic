@@ -17,6 +17,16 @@ class DisquesRepository extends ServiceEntityRepository
         parent::__construct($registry, Disques::class);
     }
 
+    public function findDisquesByUser(User $user): array
+    {
+        return $this->createQueryBuilder('d')
+            ->join('App\Entity\DisquesObtenu', 'do', 'WITH', 'd.id = do.disque')
+            ->where('do.user = :user')
+            ->setParameter('user', $user)
+            ->getQuery()
+            ->getResult();
+    }
+
     public function findUserDisquesByEmplacement(User $user, int $emplacement): array
     {
         return $this->createQueryBuilder('d')

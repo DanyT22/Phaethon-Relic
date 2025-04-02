@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\Disques;
 use App\Entity\DisquesObtenu;
 use App\Form\DisquesType;
+use App\Repository\DisquesObtenuRepository;
 use App\Repository\DisquesRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -21,9 +22,10 @@ final class DisquesController extends AbstractController
         if (!$this->getUser()) {
             return $this->redirectToRoute('app_connexion_inscription');
         }
+        $user = $this->getUser();
 
         return $this->render('disques/index.html.twig', [
-            'disques' => $disquesRepository->findAll(),
+            'disques' => $disquesRepository->findDisquesByUser($user),
         ]);
     }
 
@@ -38,7 +40,6 @@ final class DisquesController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager->persist($disque);
-            // $entityManager->flush();
 
             $disqueObtenus = new DisquesObtenu();
             $disqueObtenus->setDisque($disque);
@@ -57,16 +58,46 @@ final class DisquesController extends AbstractController
     }
 
     #[Route('/{id}', name: 'app_disques_show', methods: ['GET'])]
-    public function show(Disques $disque): Response
+    public function show(Disques $disque, DisquesObtenuRepository $disquesObtenuRepository): Response
     {
+        $user = $this->getUser();
+
+        if (!$user) {
+            return $this->redirectToRoute('app_connexion_inscription');
+        }
+
+        $disquesObtenu = $disquesObtenuRepository->findOneBy([
+            'disque' => $disque,
+            'user' => $user,
+        ]);
+    
+        if (!$disquesObtenu) {
+            return $this->redirectToRoute('app_disques_index');
+        }
+
         return $this->render('disques/show.html.twig', [
             'disque' => $disque,
         ]);
     }
 
     #[Route('/{id}/edit', name: 'app_disques_edit', methods: ['GET', 'POST'])]
-    public function edit(Request $request, Disques $disque, EntityManagerInterface $entityManager): Response
+    public function edit(Request $request, Disques $disque, EntityManagerInterface $entityManager, DisquesObtenuRepository $disquesObtenuRepository): Response
     {
+        $user = $this->getUser();
+
+        if (!$user) {
+            return $this->redirectToRoute('app_connexion_inscription');
+        }
+
+        $disquesObtenu = $disquesObtenuRepository->findOneBy([
+            'disque' => $disque,
+            'user' => $user,
+        ]);
+    
+        if (!$disquesObtenu) {
+            return $this->redirectToRoute('app_disques_index');
+        }
+
         $form = $this->createForm(DisquesType::class, $disque);
         $form->handleRequest($request);
 

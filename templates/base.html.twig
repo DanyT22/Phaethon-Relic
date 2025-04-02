@@ -28,12 +28,12 @@
                 <img src="{{ asset('images/logo/Logo.png') }}" alt="logo" class="w-16">
             </a>
             <nav class="flex gap-[5%] size-fit">
-                <a href="{{ path('app_personnages_index') }}" class="text-white">Personages</a>
+                <a href="{{ path('app_personnages_index') }}" class="text-white">Personnages</a>
                 <a href="{{ path('app_moteurs_index') }}" class="text-white">Moteurs</a>
                 <a href="{{ path('app_bangboos_index') }}" class="text-white">Bangboos</a>
-                <a href="{{ path('app_disques_index') }}" class="text-white">Disque</a>
-                <a href="{{ path('app_builds_index') }}" class="text-white">Build</a>
-                <a href="{{ path('app_teams_index') }}" class="text-white">Team</a>
+                <a href="{{ path('app_disques_index') }}" class="text-white">Disques</a>
+                <a href="{{ path('app_builds_index') }}" class="text-white">Builds</a>
+                {# <a href="{{ path('app_teams_index') }}" class="text-white">Team</a> #}
             </nav>
             {% if app.user %}
                 <a href="{{ path('app_user_edit', {'id': app.user.id}) }}" class="text-white">Compte</a>
@@ -53,12 +53,12 @@
                 <img src="{{ asset('images/logo/Logo.png') }}" alt="logo" class="w-24">
             </a>
             <nav class="flex flex-col items-center justify-center gap-4 size-fit">
-                <a href="{{ path('app_personnages_index') }}" class="text-white">Personages</a>
+                <a href="{{ path('app_personnages_index') }}" class="text-white">Personnages</a>
                 <a href="{{ path('app_moteurs_index') }}" class="text-white">Moteurs</a>
                 <a href="{{ path('app_bangboos_index') }}" class="text-white">Bangboos</a>
-                <a href="{{ path('app_disques_index') }}" class="text-white">Disque</a>
-                <a href="{{ path('app_builds_index') }}" class="text-white">Build</a>
-                <a href="{{ path('app_teams_index') }}" class="text-white">Team</a>
+                <a href="{{ path('app_disques_index') }}" class="text-white">Disques</a>
+                <a href="{{ path('app_builds_index') }}" class="text-white">Builds</a>
+                {# <a href="{{ path('app_teams_index') }}" class="text-white">Team</a> #}
             </nav>
             {% if app.user %}
                 <a href="{{ path('app_user_edit', {'id': app.user.id}) }}" class="text-white">Compte</a>
