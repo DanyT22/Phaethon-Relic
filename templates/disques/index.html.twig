@@ -1,60 +1,65 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Disques index{% endblock %}
+{% block title %}Disques{% endblock %}
 
 {% block body %}
 
     <div class="bg-black flex items-center justify-center p-8 my-8">
-        <h1 class="text-center text-2xl text-white"> Disques </h1>
+        <h1 class="text-center text-2xl text-white">Disques</h1>
     </div>
 
+    <!-- Section de filtre -->
     <div class="filtre"> </div>
 
-<a href="{{ path('app_disques_new') }}">
-    <div class="bg-black flex items-center justify-center w-full p-8 my-8">
-        <p class="text-center text-2xl text-white">Ajouter un disque</p>
-    </div>
-</a>
+    <!-- Lien pour ajouter un disque -->
+    <a href="{{ path('app_disques_new') }}">
+        <div class="bg-black flex items-center justify-center w-full p-8 my-8">
+            <p class="text-center text-2xl text-white">Ajouter un disque</p>
+        </div>
+    </a>
 
+    <!-- Affichage des disques -->
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 w-full h-full">
         {% for disque in disques %}
             <a href="{{ path('app_disques_edit', {'id': disque.id}) }}">
                 <div class="NoElements flex w-full p-[2%]">
+                    <!-- Image du disque et emplacement -->
                     <div class="relative flex items-center justify-center min-h-full w-1/4">
                         <img src="{{ asset('images/set/' ~ disque.ensemble.nomSet|replace({' ': '_'}) ~ '.webp') }}" class="w-24">
                         <img src="{{ asset('images/emplacement/' ~ disque.emplacementString|replace({' ': '_'}) ~ '.webp') }}" class="absolute rounded-full top-[25%] right-0 w-[33%]">
                     </div>
 
+                    <!-- Informations du disque -->
                     <div class="flex flex-col justify-between w-3/4">
                         <div class="flex items-center justify-center h-full w-full">
-                            <p class="text-center text-xl text-white truncate"> {{ disque.mainStatString }} </p>
+                            <p class="text-center text-xl text-white truncate">{{ disque.mainStatString }}</p>
                         </div>
 
                         <div class="flex flex-col justify-around h-full w-full">
-                                <div class="flex flex-col w-full">
-                                    <p class="text-center text-white truncate"> {{ disque.subStatString1 }} : </p>
-                                    <p class="text-center text-white truncate"> {{ disque.valeurSubStat1 }} </p>
-                                </div>
-                                <div class="flex flex-col w-full">
-                                    <p class="text-center text-white truncate"> {{ disque.subStatString2 }} : </p>
-                                    <p class="text-center text-white truncate"> {{ disque.valeurSubStat2 }} </p>
-                                </div>
-                                <div class="flex flex-col w-full">
-                                    <p class="text-center text-white truncate"> {{ disque.subStatString3 }} : </p>
-                                    <p class="text-center text-white truncate"> {{ disque.valeurSubStat3 }} </p>
-                                </div>
-                                <div class="flex flex-col w-full">
-                                    <p class="text-center text-white truncate"> {{ disque.subStatString4 }} : </p>
-                                    <p class="text-center text-white truncate"> {{ disque.valeurSubStat4 }} </p>
-                                </div>
+                            <!-- Sub stats du disque -->
+                            <div class="flex flex-col w-full">
+                                <p class="text-center text-white truncate">{{ disque.subStatString1 }} :</p>
+                                <p class="text-center text-white truncate">{{ disque.valeurSubStat1 }}</p>
+                            </div>
+                            <div class="flex flex-col w-full">
+                                <p class="text-center text-white truncate">{{ disque.subStatString2 }} :</p>
+                                <p class="text-center text-white truncate">{{ disque.valeurSubStat2 }}</p>
+                            </div>
+                            <div class="flex flex-col w-full">
+                                <p class="text-center text-white truncate">{{ disque.subStatString3 }} :</p>
+                                <p class="text-center text-white truncate">{{ disque.valeurSubStat3 }}</p>
+                            </div>
+                            <div class="flex flex-col w-full">
+                                <p class="text-center text-white truncate">{{ disque.subStatString4 }} :</p>
+                                <p class="text-center text-white truncate">{{ disque.valeurSubStat4 }}</p>
+                            </div>
                         </div>
                     </div>
                 </div>
             </a>
-            {% else %}
-                <p>Vous n'avez ajouté aucun disque.</p>
+        {% else %}
+            <p>Vous n'avez ajouté aucun disque.</p>
         {% endfor %}
     </div>
-
 
 {% endblock %}

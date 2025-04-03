@@ -1,11 +1,13 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Edit Disques{% endblock %}
+{% block title %}Éditer le Disque{% endblock %}
 
 {% block body %}
-    {{ include('disques/_form.html.twig', {'button_label': 'Mise a jour'}) }}
-
-    <div class="bg-red-600 flex items-center justify-center w-full p-8 my-8">
-        {{ include('disques/_delete_form.html.twig') }}
+    <div class="bg-black flex items-center justify-center w-full p-8 my-8">
+        <h1 class="text-center text-2xl text-white">Modifier le Disque</h1>
     </div>
+
+    {{ include('disques/_form.html.twig', {'button_label': 'Mise à jour'}) }}
+
+        {{ include('disques/_delete_form.html.twig') }}
 {% endblock %}

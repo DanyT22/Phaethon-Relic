@@ -4,22 +4,24 @@
 
 {% block body %}
 
+    <!-- Section pour les derniers personnages sortis -->
     <div class="bg-black flex items-center justify-center p-8 my-8">
-        <p class="text-center text-2xl text-white"> Derniers personnages sortis </p>
+        <p class="text-center text-2xl text-white">Derniers personnages sortis</p>
     </div>
 
+    <!-- Grid pour afficher les personnages -->
     <div class="grid grid-cols-1 md:grid-cols-2 gap-4 w-full h-full">
         {% for personnage in personnages %}
 
             <a href="{{ path('app_personnages_show', {'id': personnage.id}) }}">
                 <div class="{{ personnage.element.element }} flex w-full p-[2%]">
                     <div class="flex items-center justify-center min-h-full w-1/4">
-                        <img src="{{ asset('images/icon/' ~ personnage.nomPersonnage|replace({' ': '_'}) ~ '.webp') }}" class= "w-36 rounded-lg">
+                        <img src="{{ asset('images/icon/' ~ personnage.nomPersonnage|replace({' ': '_'}) ~ '.webp') }}" class="w-36 rounded-lg">
                     </div>
 
                     <div class="flex flex-col justify-between w-3/4">
                         <div class="flex items-center justify-center h-full w-full">
-                            <p class="text-center text-xl text-white truncate"> {{ personnage.nomPersonnage }} </p>
+                            <p class="text-center text-xl text-white truncate">{{ personnage.nomPersonnage }}</p>
                         </div>
 
                         <div class="flex justify-around h-full w-full">
@@ -40,30 +42,32 @@
         {% endfor %}
     </div>
 
-
+    <!-- Section pour les derniers moteurs sortis -->
     <div class="bg-black flex items-center justify-center p-8 my-8">
-        <p class="text-center text-2xl text-white"> Derniers moteurs sortis </p>
+        <p class="text-center text-2xl text-white">Derniers moteurs sortis</p>
     </div>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 w-full h-full">
+
+    <!-- Grid pour afficher les moteurs -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 w-full h-full">
         {% for moteur in moteurs %}
 
             <a href="{{ path('app_moteurs_show', {'id': moteur.id}) }}">
                 <div class="NoElements flex w-full p-[2%]">
                     <div class="flex items-center justify-center min-h-full w-1/4">
-                        <img src="{{ asset('images/moteurs/' ~ moteur.nomMoteur|replace({' ': '_'}) ~ '.webp') }}" class= "w-36">
+                        <img src="{{ asset('images/moteurs/' ~ moteur.nomMoteur|replace({' ': '_'}) ~ '.webp') }}" class="w-36">
                     </div>
 
                     <div class="flex flex-col justify-between w-3/4">
                         <div class="flex items-center justify-center h-full w-full">
-                            <p class="text-center text-xl text-white truncate"> {{ moteur.nomMoteur }} </p>
+                            <p class="text-center text-xl text-white truncate">{{ moteur.nomMoteur }}</p>
                         </div>
 
                         <div class="flex justify-around h-full w-full">
                             <div class="size-fit">
-                                <img src="{{ asset('images/raretes/' ~ moteur.rarete.rarete|replace({' ': '_'}) ~ '.webp') }}" class= "h-12 w-12">
+                                <img src="{{ asset('images/raretes/' ~ moteur.rarete.rarete|replace({' ': '_'}) ~ '.webp') }}" class="h-12 w-12">
                             </div>
                             <div class="size-fit">
-                                <img src="{{ asset('images/specialites/' ~ moteur.specialite.specialite|replace({' ': '_'}) ~ '.webp') }}" class= "h-12 w-12">
+                                <img src="{{ asset('images/specialites/' ~ moteur.specialite.specialite|replace({' ': '_'}) ~ '.webp') }}" class="h-12 w-12">
                             </div>
                         </div>
                     </div>
@@ -73,32 +77,36 @@
         {% endfor %}
     </div>
 
-
+    <!-- Section pour les derniers Bangboos sortis -->
     <div class="bg-black flex items-center justify-center p-8 my-8">
-        <p class="text-center text-2xl text-white"> Derniers Bangboos sortis </p>
+        <p class="text-center text-2xl text-white">Derniers Bangboos sortis</p>
     </div>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 w-full h-full">
+
+    <!-- Grid pour afficher les Bangboos -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 w-full h-full">
         {% for bangboo in bangboos %}
 
             <a href="{{ path('app_bangboos_show', {'id': bangboo.id}) }}">
                 <div class="NoElements flex w-full p-[2%]">
                     <div class="min-h-full w-1/4 flex items-center justify-center">
-                        <img src="{{ asset('images/bangboos/' ~ bangboo.nomBangboo|replace({' ': '_'}) ~ '.webp') }}" class= "w-36">
+                        <img src="{{ asset('images/bangboos/' ~ bangboo.nomBangboo|replace({' ': '_'}) ~ '.webp') }}" class="w-36">
                     </div>
 
                     <div class="flex flex-col justify-between w-3/4">
                         <div class="flex items-center justify-center h-full w-full">
-                            <p class="text-center text-xl text-white truncate"> {{ bangboo.nomBangboo }} </p>
+                            <p class="text-center text-xl text-white truncate">{{ bangboo.nomBangboo }}</p>
                         </div>
 
                         <div class="flex justify-around h-full w-full">
                             <div class="size-fit">
-                                <img src="{{ asset('images/raretes/' ~ bangboo.rarete.rarete|replace({' ': '_'}) ~ '.webp') }}" class= "h-12 w-12">
+                                <img src="{{ asset('images/raretes/' ~ bangboo.rarete.rarete|replace({' ': '_'}) ~ '.webp') }}" class="h-12 w-12">
                             </div>
                         </div>
                     </div>
                 </div>
             </a>
+
         {% endfor %}
     </div>
+
 {% endblock %}
