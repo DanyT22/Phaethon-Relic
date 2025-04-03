@@ -9,13 +9,13 @@
             <div class="bg-black flex items-center justify-center w-full p-4">
                 <p class="text-white"> {{ build.personnage.nomPersonnage }} </p>
             </div>
-            <img src="{{ asset('images/profils/' ~ build.personnage.nomPersonnage|replace({' ': '_'}) ~ '.jpg') }}" class="w-56">
+            <img src="{{ asset('images/profils/' ~ build.personnage.nomPersonnage|replace({' ': '_'}) ~ '.webp') }}" class="w-56">
         </div>
         <div class="flex flex-col justify-start items-center gap-2 w-1/1 md:w-1/2 h-1/1">
             <div class="bg-black flex items-center justify-center w-full p-4">
                 <p class="text-white"> {{ build.moteur.nomMoteur }} </p>
             </div>
-            <img src="{{ asset('images/moteurs/' ~ build.moteur.nomMoteur|replace({' ': '_'}) ~ '.jpg') }}" class="self-center w-36">
+            <img src="{{ asset('images/moteurs/' ~ build.moteur.nomMoteur|replace({' ': '_'}) ~ '.webp') }}" class="self-center w-36">
         </div>
     </div>
 
@@ -24,7 +24,7 @@
         <a href="{{ path('app_disques_edit', {'id': attribute(build, 'disque' ~ i).id}) }}">
             <div class="NoElements flex w-full p-[2%]">
                 <div class="relative flex items-center justify-center min-h-full w-1/4">
-                    <img src="{{ asset('images/set/' ~ attribute(build, 'disque' ~ i).ensemble.nomSet|replace({' ': '_'}) ~ '.jpg') }}" class="w-24">
+                    <img src="{{ asset('images/set/' ~ attribute(build, 'disque' ~ i).ensemble.nomSet|replace({' ': '_'}) ~ '.webp') }}" class="w-24">
                     <img src="{{ asset('images/emplacement/' ~ attribute(build, 'disque' ~ i).emplacementString|replace({' ': '_'}) ~ '.webp') }}" class="absolute rounded-full top-[25%] right-0 w-[33%]">
                 </div>
 

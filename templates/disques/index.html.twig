@@ -21,7 +21,7 @@
             <a href="{{ path('app_disques_edit', {'id': disque.id}) }}">
                 <div class="NoElements flex w-full p-[2%]">
                     <div class="relative flex items-center justify-center min-h-full w-1/4">
-                        <img src="{{ asset('images/set/' ~ disque.ensemble.nomSet|replace({' ': '_'}) ~ '.jpg') }}" class="w-24">
+                        <img src="{{ asset('images/set/' ~ disque.ensemble.nomSet|replace({' ': '_'}) ~ '.webp') }}" class="w-24">
                         <img src="{{ asset('images/emplacement/' ~ disque.emplacementString|replace({' ': '_'}) ~ '.webp') }}" class="absolute rounded-full top-[25%] right-0 w-[33%]">
                     </div>
 
