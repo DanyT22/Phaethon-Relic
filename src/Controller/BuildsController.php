@@ -17,10 +17,11 @@ final class BuildsController extends AbstractController
     #[Route(name: 'app_builds_index', methods: ['GET'])]
     public function index(BuildsRepository $buildsRepository): Response
     {
-        if (!$this->getUser()) {
+        $user = $this->getUser();
+
+        if (!$user) {
             return $this->redirectToRoute('app_connexion_inscription');
         }
-        $user = $this->getUser();
 
         return $this->render('builds/index.html.twig', [
             'builds' => $buildsRepository->findBuildByUser($user),
@@ -30,10 +31,11 @@ final class BuildsController extends AbstractController
     #[Route('/new', name: 'app_builds_new', methods: ['GET', 'POST'])]
     public function new(Request $request, EntityManagerInterface $entityManager): Response
     {
-        if (!$this->getUser()) {
+        $user = $this->getUser();
+
+        if (!$user) {
             return $this->redirectToRoute('app_connexion_inscription');
         }
-        $user = $this->getUser();
 
         $build = new Builds();
         $form = $this->createForm(BuildsType::class, $build);

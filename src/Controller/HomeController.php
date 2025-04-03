@@ -14,14 +14,11 @@ final class HomeController extends AbstractController
     #[Route('/', name: 'app_home')]
     public function index(PersonnagesRepository $personnagesRepository, MoteursRepository $moteursRepository, BangboosRepository $bangboosRepository): Response
     {
-        $personnages = $personnagesRepository->findLastSix();
-        $moteurs = $moteursRepository->findLastSix();
-        $bangboos = $bangboosRepository->findLastTwo();
 
         return $this->render('home/index.html.twig', [
-            'personnages' => $personnages,
-            'moteurs' => $moteurs,
-            'bangboos' => $bangboos,
+            'personnages' => $personnagesRepository->findLastSix(),
+            'moteurs' => $moteursRepository->findLastSix(),
+            'bangboos' => $bangboosRepository->findLastTwo(),
         ]);
     }
 
