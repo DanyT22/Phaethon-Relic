@@ -3,9 +3,9 @@
 {% block title %}Nouveau Bangboo{% endblock %}
 
 {% block body %}
-    <h1>Créer un nouveau Bangboo</h1>
+    <div class="bg-black flex items-center justify-center w-full p-8 my-8">
+        <h1 class="text-center text-2xl text-white">Créer un nouveau Bangboo</h1>
+    </div>
 
     {{ include('bangboos/_form.html.twig') }}
-
-    <a href="{{ path('app_bangboos_index') }}">Retour à la liste</a>
 {% endblock %}

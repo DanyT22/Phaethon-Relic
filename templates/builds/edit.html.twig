@@ -1,11 +1,13 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Edit Builds{% endblock %}
+{% block title %}Modifier les Builds{% endblock %}
 
 {% block body %}
-    <h1>Edit Builds</h1>
+    <div class="bg-black flex items-center justify-center w-full p-8 my-8">
+        <h1 class="text-center text-2xl text-white">Modifier le Build</h1>
+    </div>
 
-    {{ include('builds/_form.html.twig', {'button_label': 'Update'}) }}
+    {{ include('builds/_form.html.twig', {'button_label': 'Mettre à jour'}) }}
 
     {{ include('builds/_delete_form.html.twig') }}
 {% endblock %}

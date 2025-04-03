@@ -3,6 +3,10 @@
 {% block title %}Modifier Bangboo{% endblock %}
 
 {% block body %}
+    <div class="bg-black flex items-center justify-center w-full p-8 my-8">
+        <h1 class="text-center text-2xl text-white">Modifier le Bangboo</h1>
+    </div>
+
     {{ include('bangboos/_form.html.twig', {'button_label': 'Mettre à jour'}) }}
 
     {{ include('bangboos/_delete_form.html.twig') }}
