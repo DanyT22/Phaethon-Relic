@@ -9,13 +9,13 @@
         <img src="{{ asset('images/logo/Logo-Phaethon_Relic.webp') }}" class="">
 
         <!-- Lien de connexion -->
-        <div class="bg-black flex items-center justify-center w-full p-8 m-8">
-            <a href="{{ path('app_login') }}" class="text-center text-2xl text-white">Connexion</a>
-        </div>
+        <a href="{{ path('app_login') }}" class="bg-black flex items-center justify-center w-full p-8 m-8">
+            <p class="text-center text-2xl text-white"> Connexion </p>
+        </a>
 
         <!-- Lien d'inscription -->
-        <div class="bg-black flex items-center justify-center w-full p-8 my-8">
-            <a href="{{ path('app_register') }}" class="text-center text-2xl text-white">Inscription</a>
-        </div>
+        <a href="{{ path('app_register') }}"  class="bg-black flex items-center justify-center w-full p-8 my-8">
+            <p class="text-center text-2xl text-white"> Inscription </p>
+        </a>
     </div>
 {% endblock %}

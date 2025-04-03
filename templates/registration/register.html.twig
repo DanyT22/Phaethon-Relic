@@ -3,41 +3,51 @@
 {% block title %}Inscription{% endblock %}
 
 {% block body %}
+    <!-- Affichage des erreurs de vérification d'email -->
     {% for flash_error in app.flashes('verify_email_error') %}
         <div class="alert alert-danger" role="alert">{{ flash_error }}</div>
     {% endfor %}
 
-<div class="flex flex-col items-center justify-center gap-8 p-8 my-8">
-    <img src="{{ asset('images/logo/Logo-Phaethon_Relic.webp') }}">
-    <div class="bg-black flex items-center justify-center w-full p-8 my-8">
-        <h1 class="text-center text-2xl text-white">Inscription</h1>
-    </div>
+    <div class="flex flex-col items-center justify-center gap-8 p-8 my-8">
+        <img src="{{ asset('images/logo/Logo-Phaethon_Relic.webp') }}" alt="Logo Phaethon Relic">
 
-    {{ form_errors(registrationForm ) }}
-
-    {{ form_start(registrationForm, { 'attr': {'class': 'flex flex-col gap-8 w-full'} }) }}
-        {{ form_row(registrationForm.email, {'label': false, 'attr': {'class': 'w-full bg-black text-center text-white p-8', 'placeholder': 'Entrez votre email'} }) }}
-        {{ form_row(registrationForm.pseudos, {'label': false, 'attr': {'class': 'w-full bg-black text-center text-white p-8', 'placeholder': 'Entrez votre pseudos'} }) }}
-
-        {{ form_row(registrationForm.plainPassword.first, {'label': false, 'errors': false, 'attr': {'class': 'w-full bg-black text-center text-white p-8', 'placeholder': 'Entrez votre mot de passe'} }) }}
-        <div class= "text-red-500">
-            {{ form_errors(registrationForm.plainPassword.first) }}
+        <div class="flex items-center justify-center w-full p-8 my-8 bg-black">
+            <h1 class="text-center text-2xl text-white">Inscription</h1>
         </div>
 
-        {{ form_row(registrationForm.plainPassword.second, {'label': false,'errors': false, 'attr': {'class': 'w-full bg-black text-center text-white p-8', 'placeholder': 'Confirmer le mot de passe'} }) }}
-        <div class= "text-red-500">
-            {{ form_errors(registrationForm.plainPassword.second) }}
+        {{ form_errors(registrationForm ) }}
+
+        <!-- Formulaire d'inscription -->
+        {{ form_start(registrationForm, { 'attr': {'class': 'flex flex-col gap-8 w-full'} }) }}
+            <!-- Champ pour l'email -->
+            {{ form_row(registrationForm.email, {'label': false, 'attr': {'class': 'w-full bg-black text-center text-white p-8', 'placeholder': 'Entrez votre email'} }) }}
+
+            <!-- Champ pour le pseudo -->
+            {{ form_row(registrationForm.pseudos, {'label': false, 'attr': {'class': 'w-full bg-black text-center text-white p-8', 'placeholder': 'Entrez votre pseudo'} }) }}
+
+            <!-- Champ pour le premier mot de passe -->
+            {{ form_row(registrationForm.plainPassword.first, {'label': false, 'errors': false, 'attr': {'class': 'w-full bg-black text-center text-white p-8', 'placeholder': 'Entrez votre mot de passe'} }) }}
+            <div class="text-red-500">
+                {{ form_errors(registrationForm.plainPassword.first) }}
+            </div>
+
+            <!-- Champ pour la confirmation du mot de passe -->
+            {{ form_row(registrationForm.plainPassword.second, {'label': false, 'errors': false, 'attr': {'class': 'w-full bg-black text-center text-white p-8', 'placeholder': 'Confirmer le mot de passe'} }) }}
+            <div class="text-red-500">
+                {{ form_errors(registrationForm.plainPassword.second) }}
+            </div>
+
+            <!-- Checkbox pour accepter les conditions -->
+            <div class="flex flex-col items-center justify-center gap-4">
+                <label for="{{ registrationForm.agreeTerms.vars.id }}" class="text-white text-lg">J’accepte les conditions d’utilisation</label>
+                {{ form_widget(registrationForm.agreeTerms, {'attr': {'class': 'w-6 h-6'} }) }}
+            </div>
+
+            <!-- Bouton pour soumettre le formulaire -->
+            <div class="flex items-center justify-center w-full p-8 my-8 bg-black">
+                <button type="submit" class="btn text-center text-2xl text-white">Inscription</button>
+            </div>
         </div>
 
-        <div class="flex flex-col items-center justify-center gap-4">
-            <label for="{{ registrationForm.agreeTerms.vars.id }}" class="text-white text-lg">J’accepte les conditions d’utilisation</label>
-            {{ form_widget(registrationForm.agreeTerms, {'attr': {'class': 'w-6 h-6'} }) }}
-        </div>
-
-    <div class="bg-black flex items-center justify-center w-full p-8 my-8">
-        <button type="submit" class="btn text-center text-2xl text-white">Inscription</button>
-    </div>
-</div>
-
-    {{ form_end(registrationForm) }}
+        {{ form_end(registrationForm) }}
 {% endblock %}

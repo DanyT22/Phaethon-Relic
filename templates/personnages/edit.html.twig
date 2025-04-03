@@ -1,13 +1,13 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Edit Personnages{% endblock %}
+{% block title %}Modifier le personnage{% endblock %}
 
 {% block body %}
-    <h1>Edit Personnages</h1>
+    <div class="flex items-center justify-center w-full p-8 my-8 bg-black">
+        <h1 class="text-center text-2xl text-white">Modifier le Personnage</h1>
+    </div>
 
-    {{ include('personnages/_form.html.twig', {'button_label': 'Update'}) }}
-
-    <a href="{{ path('app_personnages_index') }}">back to list</a>
+    {{ include('personnages/_form.html.twig', {'button_label': 'Mettre à jour'}) }}
 
     {{ include('personnages/_delete_form.html.twig') }}
 {% endblock %}

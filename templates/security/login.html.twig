@@ -4,35 +4,45 @@
 
 {% block body %}
 <div class="flex flex-col items-center justify-center gap-8 p-8 my-8">
-    <img src="{{ asset('images/logo/Logo-Phaethon_Relic.webp') }}" class="">
+    <!-- Logo -->
+    <img src="{{ asset('images/logo/Logo-Phaethon_Relic.webp') }}" alt="Logo Phaethon Relic">
+
+    <!-- Titre -->
     <div class="bg-black flex items-center justify-center w-full p-8 my-8">
         <h1 class="text-center text-2xl text-white">Connexion</h1>
     </div>
 
-    <form method="post" class='flex flex-col gap-8 w-full'>
+    <!-- Formulaire de connexion -->
+    <form method="post" class="flex flex-col gap-8 w-full">
         {% if error %}
             <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
         {% endif %}
 
         {% if app.user %}
-            <div class="mb-3">
-                You are logged in as {{ app.user.userIdentifier }}, <a href="{{ path('app_logout') }}">Logout</a>
+            <div class="mb-3 text-center text-white">
+                Vous êtes connecté en tant que <strong>{{ app.user.userIdentifier }}</strong>. 
+                <a href="{{ path('app_logout') }}" class="text-blue-400 underline">Déconnexion</a>
             </div>
         {% endif %}
 
-        <input type="email" value="{{ last_username }}" name="_username" id="username" class="form-control w-full bg-black text-center text-white p-8" placeholder='Entrez votre email' autocomplete="email" required autofocus>
-        <input type="password" name="_password" id="password" class="form-control w-full bg-black text-center text-white p-8" placeholder='Entrez votre mots de passe' autocomplete="current-password" required>
+        <!-- Champ Email -->
+        <input type="email" value="{{ last_username }}" name="_username" id="username" class="w-full bg-black text-center text-white p-8" placeholder="Entrez votre email" autocomplete="email" required autofocus>
 
-        <input type="hidden" name="_csrf_token"value="{{ csrf_token('authenticate') }}">
+        <!-- Champ Mot de passe -->
+        <input type="password" name="_password" id="password" class="w-full bg-black text-center text-white p-8" placeholder="Entrez votre mot de passe" autocomplete="current-password" required>
 
-            <div class="checkbox mb-3 flex flex-col items-center justify-center gap-4">
-                <label for="_remember_me" class="text-white text-lg">Se souvenir de moi</label>
-                <input type="checkbox" name="_remember_me" id="_remember_me" class='w-6 h-6'>
-            </div>
+        <!-- Jeton CSRF -->
+        <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
 
+        <!-- Option "Se souvenir de moi" -->
+        <div class="flex flex-col items-center justify-center gap-4">
+            <label for="_remember_me" class="text-white text-lg">Se souvenir de moi</label>
+            <input type="checkbox" name="_remember_me" id="_remember_me" class="w-6 h-6">
+        </div>
 
+        <!-- Bouton de connexion -->
         <div class="bg-black flex items-center justify-center w-full p-8 my-8">
-            <button class="btn btn-lg btn-primary text-center text-2xl text-white" type="submit">Connexion</button>
+            <button type="submit" class="text-2xl text-white">Connexion</button>
         </div>
     </form>
 </div>

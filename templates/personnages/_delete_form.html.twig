@@ -1,7 +1,8 @@
-<form method="post" action="{{ path('app_personnages_delete', {'id': personnage.id}) }}" onsubmit="return confirm('Are you sure you want to delete this item?');">
+<form method="post" action="{{ path('app_personnages_delete', {'id': personnage.id}) }}" onsubmit="return confirm('Êtes-vous sûr de vouloir supprimer cet élément ?');">
+    <!-- Ajout d'un champ caché pour le token CSRF afin de sécuriser l'action -->
     <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ personnage.id) }}">
 
-    <div class="bg-red-600 flex items-center justify-center w-full p-8 my-8">
-        <button class="btn">Supprimer le build</button>
+    <div class="flex items-center justify-center w-full p-8 my-8 bg-red-600">
+        <button class="btn">Supprimer le personnage</button>
     </div>
 </form>

@@ -3,74 +3,81 @@
 {% block title %}Personnages{% endblock %}
 
 {% block body %}
-
-    <div class="bg-black flex items-center justify-center p-8 my-8">
-        <h1 class="text-center text-2xl text-white"> Personnages </h1>
+    <div class="flex items-center justify-center p-8 my-8 bg-black">
+        <h1 class="text-center text-2xl text-white">Personnages</h1>
     </div>
 
-    <div class="bg-black flex flex-col items-center justify-center gap-4 py-4 my-8"> 
+    <!-- Section filtres pour les raretés, éléments et spécialités -->
+    <div class="flex flex-col items-center justify-center gap-4 py-4 my-8 bg-black">
         <div class="flex flex-col items-center justify-center md:flex-row gap-4 md:gap-8">
+            <!-- Boutons pour les raretés -->
             <div class="flex gap-2">
-            <button>
-                <img src="{{ asset('images/raretes/S.webp') }}" class= "h-8 w-8">
-            </button>
-            <button>
-                <img src="{{ asset('images/raretes/A.webp') }}" class= "h-8 w-8">
-            </button>
+                <button>
+                    <img src="{{ asset('images/raretes/S.webp') }}" class="h-8 w-8">
+                </button>
+                <button>
+                    <img src="{{ asset('images/raretes/A.webp') }}" class="h-8 w-8">
+                </button>
             </div>
+            <!-- Boutons pour les éléments -->
             <div class="flex gap-2">
                 {% for element in elements %}
                     <button>
-                        <img src="{{ asset('images/elements/' ~ element.element|replace({' ': '_'}) ~ '.webp') }}" class= "h-8 w-8">
+                        <img src="{{ asset('images/elements/' ~ element.element|replace({' ': '_'}) ~ '.webp') }}" class="h-8 w-8">
                     </button>
                 {% endfor %}
             </div>
+            <!-- Boutons pour les spécialités -->
             <div class="flex gap-2">
                 {% for specialite in specialites %}
                     <button>
-                        <img src="{{ asset('images/specialites/' ~ specialite.specialite|replace({' ': '_'}) ~ '.webp') }}" class= "h-8 w-8">
+                        <img src="{{ asset('images/specialites/' ~ specialite.specialite|replace({' ': '_'}) ~ '.webp') }}" class="h-8 w-8">
                     </button>
                 {% endfor %}
             </div>
         </div>
+        <!-- Boutons pour les factions -->
         <div class="flex flex-wrap gap-4">
             {% for faction in factions %}
                 <button>
-                    <img src="{{ asset('images/factions/' ~ faction.faction|replace({' ': '_'}) ~ '.webp') }}" class= "h-8 w-8">
+                    <img src="{{ asset('images/factions/' ~ faction.faction|replace({' ': '_'}) ~ '.webp') }}" class="h-8 w-8">
                 </button>
             {% endfor %}
         </div>
     </div>
 
+    <!-- Grille pour afficher les personnages -->
     <div class="grid grid-cols-1 md:grid-cols-3 gap-8 w-full h-full">
         {% for personnage in personnages %}
-
             <a href="{{ path('app_personnages_show', {'id': personnage.id}) }}">
                 <div class="{{ personnage.element.element }} flex w-full p-[2%]">
+                    <!-- Image du personnage -->
                     <div class="flex items-center justify-center min-h-full w-1/4">
-                        <img src="{{ asset('images/icon/' ~ personnage.nomPersonnage|replace({' ': '_'}) ~ '.webp') }}" class= "w-36 rounded-lg">
+                        <img src="{{ asset('images/icon/' ~ personnage.nomPersonnage|replace({' ': '_'}) ~ '.webp') }}" class="w-36 rounded-lg">
                     </div>
 
+                    <!-- Informations sur le personnage -->
                     <div class="flex flex-col justify-between w-3/4">
+                        <!-- Nom du personnage -->
                         <div class="flex items-center justify-center h-full w-full">
-                            <p class="text-center text-xl text-white truncate"> {{ personnage.nomPersonnage }} </p>
+                            <p class="text-center text-xl text-white truncate">{{ personnage.nomPersonnage }}</p>
                         </div>
 
+                        <!-- Rareté, spécialité et faction du personnage -->
                         <div class="flex justify-around h-full w-full">
                             <div class="size-fit">
-                                <img src="{{ asset('images/raretes/' ~ personnage.rarete.rarete|replace({' ': '_'}) ~ '.webp') }}" class= "h-12 w-12">
+                                <img src="{{ asset('images/raretes/' ~ personnage.rarete.rarete|replace({' ': '_'}) ~ '.webp') }}" class="h-12 w-12">
                             </div>
                             <div class="size-fit">
-                                <img src="{{ asset('images/specialites/' ~ personnage.specialite.specialite|replace({' ': '_'}) ~ '.webp') }}" class= "h-12 w-12">
+                                <img src="{{ asset('images/specialites/' ~ personnage.specialite.specialite|replace({' ': '_'}) ~ '.webp') }}" class="h-12 w-12">
                             </div>
                             <div class="size-fit">
-                                <img src="{{ asset('images/factions/' ~ personnage.faction.faction|replace({' ': '_'}) ~ '.webp') }}" class= "h-12 w-12">
+                                <img src="{{ asset('images/factions/' ~ personnage.faction.faction|replace({' ': '_'}) ~ '.webp') }}" class="h-12 w-12">
                             </div>
                         </div>
                     </div>
                 </div>
             </a>
-
         {% endfor %}
     </div>
 
