@@ -5,43 +5,46 @@
 {% block body %}
 
     <div class="bg-black flex items-center justify-center p-8 my-8">
-        <h1 class="text-center text-2xl text-white"> Bangboos </h1>
+        <h1 class="text-center text-2xl text-white">Bangboos</h1>
     </div>
 
+    <!-- Section de filtres -->
     <div class="bg-black flex flex-col items-center justify-center gap-2 px-8 py-4 my-8">
         <div class="flex gap-4">
+            <!-- Boutons pour les raretés -->
             <button>
-                <img src="{{ asset('images/raretes/S.webp') }}" class= "h-8 w-8">
+                <img src="{{ asset('images/raretes/S.webp') }}" class="h-8 w-8" alt="Rareté S">
             </button>
             <button>
-                <img src="{{ asset('images/raretes/A.webp') }}" class= "h-8 w-8">
+                <img src="{{ asset('images/raretes/A.webp') }}" class="h-8 w-8" alt="Rareté A">
             </button>
         </div>
     </div>
 
+    <!-- Affichage des bangboos -->
     <div class="grid grid-cols-1 md:grid-cols-3 gap-4 w-full h-full">
         {% for bangboo in bangboos %}
-
             <a href="{{ path('app_bangboos_show', {'id': bangboo.id}) }}">
                 <div class="NoElements flex w-full p-[2%]">
+                    <!-- Image du Bangboo -->
                     <div class="flex items-center justify-center min-h-full w-1/4">
-                        <img src="{{ asset('images/bangboos/' ~ bangboo.nomBangboo|replace({' ': '_'}) ~ '.webp') }}" class= "h-18">
+                        <img src="{{ asset('images/bangboos/' ~ bangboo.nomBangboo|replace({' ': '_'}) ~ '.webp') }}" class="h-18" alt="{{ bangboo.nomBangboo }}">
                     </div>
 
+                    <!-- Détails du Bangboo -->
                     <div class="flex flex-col justify-between w-3/4">
                         <div class="flex items-center justify-center h-full w-full">
-                            <p class="text-center text-xl text-white truncate"> {{ bangboo.nomBangboo }} </p>
+                            <p class="text-center text-xl text-white truncate">{{ bangboo.nomBangboo }}</p>
                         </div>
 
                         <div class="flex justify-around h-full w-full">
                             <div class="size-fit">
-                                <img src="{{ asset('images/raretes/' ~ bangboo.rarete.rarete|replace({' ': '_'}) ~ '.webp') }}" class= "h-12 w-12">
+                                <img src="{{ asset('images/raretes/' ~ bangboo.rarete.rarete|replace({' ': '_'}) ~ '.webp') }}" class="h-12 w-12" alt="Rareté {{ bangboo.rarete.rarete }}">
                             </div>
                         </div>
                     </div>
                 </div>
             </a>
-
         {% endfor %}
     </div>
 
