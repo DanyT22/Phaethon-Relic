@@ -1,13 +1,13 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Edit Moteurs{% endblock %}
+{% block title %}Modifier le Moteur{% endblock %}
 
 {% block body %}
-    <h1>Edit Moteurs</h1>
+    <div class="bg-black flex items-center justify-center w-full p-8 my-8">
+        <h1 class="text-center text-2xl text-white">Modifier le Moteur</h1>
+    </div>
 
-    {{ include('moteurs/_form.html.twig', {'button_label': 'Update'}) }}
-
-    <a href="{{ path('app_moteurs_index') }}">back to list</a>
+    {{ include('moteurs/_form.html.twig', {'button_label': 'Mettre à jour'}) }}
 
     {{ include('moteurs/_delete_form.html.twig') }}
 {% endblock %}

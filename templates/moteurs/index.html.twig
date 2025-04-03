@@ -3,58 +3,64 @@
 {% block title %}Moteurs{% endblock %}
 
 {% block body %}
-
     <div class="bg-black flex items-center justify-center p-8 my-8">
-        <h1 class="text-center text-2xl text-white"> Moteurs </h1>
+        <h1 class="text-center text-2xl text-white">Moteurs</h1>
     </div>
 
-    <div class="bg-black flex flex-col md:flex-row items-center justify-center gap-4 md:gap-8 py-4 my-8"> 
+    <!-- Filtre pour les raretés et spécialités des moteurs -->
+    <div class="bg-black flex flex-col md:flex-row items-center justify-center gap-4 md:gap-8 py-4 my-8">
+        <!-- Rareté des moteurs -->
         <div class="flex gap-2">
             <button>
-                <img src="{{ asset('images/raretes/S.webp') }}" class="h-8 w-8">
+                <img src="{{ asset('images/raretes/S.webp') }}" class="h-8 w-8" alt="Rareté S">
             </button>
             <button>
-                <img src="{{ asset('images/raretes/A.webp') }}" class="h-8 w-8">
+                <img src="{{ asset('images/raretes/A.webp') }}" class="h-8 w-8" alt="Rareté A">
             </button>
             <button>
-                <img src="{{ asset('images/raretes/B.webp') }}" class="h-8 w-8">
+                <img src="{{ asset('images/raretes/B.webp') }}" class="h-8 w-8" alt="Rareté B">
             </button>
         </div>
+
+        <!-- Spécialités des moteurs -->
         <div class="flex gap-2">
             {% for specialite in specialites %}
                 <button>
-                    <img src="{{ asset('images/specialites/' ~ specialite.specialite|replace({' ': '_'}) ~ '.webp') }}" class= "h-8 w-8">
+                    <img src="{{ asset('images/specialites/' ~ specialite.specialite|replace({' ': '_'}) ~ '.webp') }}" class="h-8 w-8" alt="{{ specialite.specialite }}">
                 </button>
             {% endfor %}
         </div>
     </div>
 
+    <!-- Liste des moteurs avec leurs informations -->
     <div class="grid grid-cols-1 md:grid-cols-3 gap-8 w-full h-full">
         {% for moteur in moteurs %}
-
             <a href="{{ path('app_moteurs_show', {'id': moteur.id}) }}">
                 <div class="NoElements flex w-full p-[2%]">
+                    <!-- Image du moteur -->
                     <div class="flex items-center justify-center min-h-full w-1/4">
-                        <img src="{{ asset('images/moteurs/' ~ moteur.nomMoteur|replace({' ': '_'}) ~ '.webp') }}" class= "w-36">
+                        <img src="{{ asset('images/moteurs/' ~ moteur.nomMoteur|replace({' ': '_'}) ~ '.webp') }}" class="w-36" alt="Image du moteur {{ moteur.nomMoteur }}">
                     </div>
 
+                    <!-- Détails du moteur -->
                     <div class="flex flex-col justify-between w-3/4">
                         <div class="flex items-center justify-center h-full w-full">
-                            <p class="text-center text-xl text-white truncate"> {{ moteur.nomMoteur }} </p>
+                            <p class="text-center text-xl text-white truncate">{{ moteur.nomMoteur }}</p>
                         </div>
 
                         <div class="flex justify-around h-full w-full">
+                            <!-- Rareté du moteur -->
                             <div class="size-fit">
-                                <img src="{{ asset('images/raretes/' ~ moteur.rarete.rarete|replace({' ': '_'}) ~ '.webp') }}" class= "h-12 w-12">
+                                <img src="{{ asset('images/raretes/' ~ moteur.rarete.rarete|replace({' ': '_'}) ~ '.webp') }}" class="h-12 w-12" alt="Rareté {{ moteur.rarete.rarete }}">
                             </div>
+                            <!-- Spécialité du moteur -->
                             <div class="size-fit">
-                                <img src="{{ asset('images/specialites/' ~ moteur.specialite.specialite|replace({' ': '_'}) ~ '.webp') }}" class= "h-12 w-12">
+                                <img src="{{ asset('images/specialites/' ~ moteur.specialite.specialite|replace({' ': '_'}) ~ '.webp') }}" class="h-12 w-12" alt="Spécialité {{ moteur.specialite.specialite }}">
                             </div>
                         </div>
                     </div>
                 </div>
             </a>
-
         {% endfor %}
     </div>
 {% endblock %}
