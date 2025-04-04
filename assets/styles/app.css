@@ -10,23 +10,23 @@ body {
     font-family: 'Lexend', sans-serif;
 }
 
-.Feu {
+.feu {
     background-color: hsla(0, 93%, 42%, 0.6);
 }
 
-.Glace {
+.glace {
     background-color: hsl(198, 82%, 45%, 0.6);
 }
 
-.Électrique {
+.électrique {
     background-color: hsl(239, 100%, 50%, 0.6);
 }
 
-.Physique {
+.physique {
     background-color: hsla(44, 76%, 46%, 0.6);
 }
 
-.Éther {
+.éther {
     background-color: hsl(306, 83%, 45%, 0.6);
 }
 
@@ -36,4 +36,9 @@ body {
 
 .navBar {
     background-color: hsl(0, 0%, 0%, 0.95);
+}
+
+.active {
+    background-color: #1E1E1E;
+    border: 1px solid red;
 }

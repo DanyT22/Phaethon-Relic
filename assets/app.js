@@ -10,3 +10,4 @@ import './bootstrap.js';
 import './styles/app.css';
 
 import './scripts/menusBurger.js';
+import './scripts/filtre.js'

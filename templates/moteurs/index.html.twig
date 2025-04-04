@@ -11,13 +11,13 @@
     <div class="bg-black flex flex-col md:flex-row items-center justify-center gap-4 md:gap-8 py-4 my-8">
         <!-- Rareté des moteurs -->
         <div class="flex gap-2">
-            <button>
+            <button id="s" class="btn-filtre cursor-pointer">
                 <img src="{{ asset('images/raretes/S.webp') }}" class="h-8 w-8" alt="Rareté S">
             </button>
-            <button>
+            <button id="a" class="btn-filtre cursor-pointer">
                 <img src="{{ asset('images/raretes/A.webp') }}" class="h-8 w-8" alt="Rareté A">
             </button>
-            <button>
+            <button id="b" class="btn-filtre cursor-pointer">
                 <img src="{{ asset('images/raretes/B.webp') }}" class="h-8 w-8" alt="Rareté B">
             </button>
         </div>
@@ -25,7 +25,7 @@
         <!-- Spécialités des moteurs -->
         <div class="flex gap-2">
             {% for specialite in specialites %}
-                <button>
+                <button id="{{ specialite.specialite }}" class="btn-filtre cursor-pointer">
                     <img src="{{ asset('images/specialites/' ~ specialite.specialite|replace({' ': '_'}) ~ '.webp') }}" class="h-8 w-8" alt="{{ specialite.specialite }}">
                 </button>
             {% endfor %}
@@ -33,9 +33,10 @@
     </div>
 
     <!-- Liste des moteurs avec leurs informations -->
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 w-full h-full">
+    <div id="grid-filtrable" class="grid grid-cols-1 md:grid-cols-3 gap-8 w-full h-full">
         {% for moteur in moteurs %}
-            <a href="{{ path('app_moteurs_show', {'id': moteur.id}) }}">
+            <a href="{{ path('app_moteurs_show', {'id': moteur.id}) }}"
+            data-{{ moteur.rarete.rarete }} data-{{ moteur.specialite.specialite }}>
                 <div class="NoElements flex w-full p-[2%]">
                     <!-- Image du moteur -->
                     <div class="flex items-center justify-center min-h-full w-1/4">

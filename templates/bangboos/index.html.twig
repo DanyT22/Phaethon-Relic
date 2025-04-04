@@ -11,19 +11,20 @@
     <div class="bg-black flex flex-col items-center justify-center gap-2 px-8 py-4 my-8">
         <div class="flex gap-4">
             <!-- Boutons pour les raretés -->
-            <button>
+            <button id="s" class="btn-filtre cursor-pointer">
                 <img src="{{ asset('images/raretes/S.webp') }}" class="h-8 w-8" alt="Rareté S">
             </button>
-            <button>
+            <button id="a" class="btn-filtre cursor-pointer">
                 <img src="{{ asset('images/raretes/A.webp') }}" class="h-8 w-8" alt="Rareté A">
             </button>
         </div>
     </div>
 
     <!-- Affichage des bangboos -->
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 w-full h-full">
+    <div id="grid-filtrable" class="grid grid-cols-1 md:grid-cols-3 gap-4 w-full h-full">
         {% for bangboo in bangboos %}
-            <a href="{{ path('app_bangboos_show', {'id': bangboo.id}) }}">
+            <a href="{{ path('app_bangboos_show', {'id': bangboo.id}) }}"
+            data-{{ bangboo.rarete.rarete }}>
                 <div class="NoElements flex w-full p-[2%]">
                     <!-- Image du Bangboo -->
                     <div class="flex items-center justify-center min-h-full w-1/4">
