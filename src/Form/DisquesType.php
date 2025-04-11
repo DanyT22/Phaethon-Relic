@@ -24,6 +24,9 @@ class DisquesType extends AbstractType
             ->add('ensemble', EntityType::class, [
                 'class' => set::class,
                 'choice_label' => 'nomSet',
+                'choice_value' => function($choice) {
+                    return $choice ? str_replace(' ', '_', $choice->getNomSet()) : null;
+                },
             ])
             ->add('emplacement', EnumType::class, [
                 'class' => Emplacement::class,

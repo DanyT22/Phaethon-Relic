@@ -1,45 +1,30 @@
-document.addEventListener('DOMContentLoaded', function() {
-    let filters = document.querySelectorAll(".btn-filtre");
+document.addEventListener('turbo:load', () => {
+    const filters = document.querySelectorAll(".btn-filtre");
+    const personnages = document.querySelectorAll("#grid-filtrable a");
 
-    function active(x){
-        x.classList.add("active");
+    function toggleAffichage(element, show) {
+        element.classList.toggle("hidden", !show);
+        element.classList.toggle("flex", show);
     }
 
-    function desactive(x){
-        x.classList.remove("active")
-    }
+    filters.forEach(filter => {
+        filter.addEventListener("click", () => {
+            const tag = filter.id.toLowerCase();
+            const isActive = filter.classList.contains("active");
 
-    function afficher(x){
-        x.classList.remove("hidden");
-        x.classList.add("flex");
-    }
-
-    function enlever(x){
-        x.classList.remove("flex");
-        x.classList.add("hidden");
-    }
-
-    for(let filter of filters) {
-        filter.addEventListener("click", function() {
-            let personnages = document.querySelectorAll("#grid-filtrable a");
-            let tag = this.id.toLowerCase();
-            let isActive = this.classList.contains("active");
+            filters.forEach(f => f.classList.remove("active"));
 
             if (isActive) {
-                desactive(this)
-                personnages.forEach(afficher);
+                personnages.forEach(p => toggleAffichage(p, true));
             } else {
-                filters.forEach(desactive);
-                active(this)
 
-                for(let personnage of personnages) {
-                    if(tag in personnage.dataset) {
-                        afficher(personnage)
-                    } else {
-                        enlever(personnage)
-                    }
-                }
+                filter.classList.add("active");
+
+                personnages.forEach(p => {
+                    const match = tag in p.dataset;
+                    toggleAffichage(p, match);
+                });
             }
         });
-    }
+    });
 });

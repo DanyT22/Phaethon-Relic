@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('turbo:load', function() {
     const burgerButton = document.getElementById("burger-button");
     const burgerIcon = document.getElementById("burger-icon");
     const mobileMenu = document.getElementById("mobile-menu");

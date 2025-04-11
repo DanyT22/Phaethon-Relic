@@ -31,10 +31,16 @@ class BuildsType extends AbstractType
             ->add('personnage', EntityType::class, [
                 'class' => Personnages::class,
                 'choice_label' => 'nomPersonnage',
+                'choice_value' => function($choice) {
+                    return $choice ? str_replace(' ', '_', $choice->getNomPersonnage()) : null;
+                },
             ])
             ->add('moteur', EntityType::class, [
                 'class' => Moteurs::class,
                 'choice_label' => 'nomMoteur',
+                'choice_value' => function($choice) {
+                    return $choice ? str_replace(' ', '_', $choice->getNomMoteur()) : null;
+                },
             ])
             ->add('disque1', EntityType::class, [
                 'class' => Disques::class,
