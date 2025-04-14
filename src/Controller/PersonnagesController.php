@@ -3,14 +3,11 @@
 namespace App\Controller;
 
 use App\Entity\Personnages;
-use App\Form\PersonnagesType;
 use App\Repository\PersonnagesRepository;
 use App\Repository\ElementsRepository;
 use App\Repository\SpecialitesRepository;
 use App\Repository\FactionsRepository;
-use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
 
@@ -30,6 +27,18 @@ final class PersonnagesController extends AbstractController
         ]);
     }
 
+    #[Route('/{id}', name: 'app_personnages_show', methods: ['GET'])]
+    public function show(Personnages $personnage): Response
+    {
+        return $this->render('personnages/show.html.twig', [
+            'personnage' => $personnage,
+        ]);
+    }
+}
+
+    // use App\Form\PersonnagesType;
+    // use Doctrine\ORM\EntityManagerInterface;
+    // use Symfony\Component\HttpFoundation\Request;
     // #[Route('/new', name: 'app_personnages_new', methods: ['GET', 'POST'])]
     // public function new(Request $request, EntityManagerInterface $entityManager): Response
     // {
@@ -49,16 +58,7 @@ final class PersonnagesController extends AbstractController
     //         'form' => $form,
     //     ]);
     // }
-
-    #[Route('/{id}', name: 'app_personnages_show', methods: ['GET'])]
-    public function show(Personnages $personnage): Response
-    {
-        return $this->render('personnages/show.html.twig', [
-            'personnage' => $personnage,
-        ]);
-    }
-
-    // #[Route('/{id}/edit', name: 'app_personnages_edit', methods: ['GET', 'POST'])]
+        // #[Route('/{id}/edit', name: 'app_personnages_edit', methods: ['GET', 'POST'])]
     // public function edit(Request $request, Personnages $personnage, EntityManagerInterface $entityManager): Response
     // {
     //     $form = $this->createForm(PersonnagesType::class, $personnage);
@@ -86,5 +86,3 @@ final class PersonnagesController extends AbstractController
 
     //     return $this->redirectToRoute('app_personnages_index', [], Response::HTTP_SEE_OTHER);
     // }
-    
-}
