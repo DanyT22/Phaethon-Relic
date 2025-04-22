@@ -12,10 +12,10 @@
         <div class="flex gap-4">
             <!-- Boutons pour les raretés -->
             <button id="s" class="btn-filtre cursor-pointer">
-                <img src="{{ asset('images/raretes/S.webp') }}" class="h-8 w-8" alt="Rareté S">
+                <img src="{{ asset('images/raretes/S.webp') }}" class="h-8 w-8" alt="Filtre rareté S">
             </button>
             <button id="a" class="btn-filtre cursor-pointer">
-                <img src="{{ asset('images/raretes/A.webp') }}" class="h-8 w-8" alt="Rareté A">
+                <img src="{{ asset('images/raretes/A.webp') }}" class="h-8 w-8" alt="Filtre rareté A">
             </button>
         </div>
     </div>
@@ -28,7 +28,7 @@
                 <div class="NoElements flex w-full p-[2%]">
                     <!-- Image du Bangboo -->
                     <div class="flex items-center justify-center min-h-full w-1/4">
-                        <img src="{{ asset('images/bangboos/' ~ bangboo.nomBangboo|replace({' ': '_'}) ~ '.webp') }}" class="h-18" alt="{{ bangboo.nomBangboo }}">
+                        <img src="{{ asset('images/bangboos/' ~ bangboo.nomBangboo|replace({' ': '_'}) ~ '.webp') }}" class="h-18" alt="Image de {{ bangboo.nomBangboo }}">
                     </div>
 
                     <!-- Détails du Bangboo -->
@@ -39,7 +39,7 @@
 
                         <div class="flex justify-around h-full w-full">
                             <div class="size-fit">
-                                <img src="{{ asset('images/raretes/' ~ bangboo.rarete.rarete|replace({' ': '_'}) ~ '.webp') }}" class="h-12 w-12" alt="Rareté {{ bangboo.rarete.rarete }}">
+                                <img src="{{ asset('images/raretes/' ~ bangboo.rarete.rarete|replace({' ': '_'}) ~ '.webp') }}" class="h-12 w-12" alt="Rareté {{ bangboo.rarete.rarete }} - {{ bangboo.nomBangboo }}">
                             </div>
                         </div>
                     </div>

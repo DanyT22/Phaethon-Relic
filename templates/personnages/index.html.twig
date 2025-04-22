@@ -13,17 +13,17 @@
             <!-- Boutons pour les raretés -->
             <div class="flex gap-2">
                 <button id="s" class="btn-filtre cursor-pointer">
-                    <img src="{{ asset('images/raretes/S.webp') }}" class="h-8 w-8">
+                    <img src="{{ asset('images/raretes/S.webp') }}" alt="Filtre rareté S" class="h-8 w-8">
                 </button>
                 <button id="a" class="btn-filtre cursor-pointer">
-                    <img src="{{ asset('images/raretes/A.webp') }}" class="h-8 w-8">
+                    <img src="{{ asset('images/raretes/A.webp') }}" alt="Filtre rareté A" class="h-8 w-8">
                 </button>
             </div>
             <!-- Boutons pour les éléments -->
             <div class="flex gap-2">
                 {% for element in elements %}
                     <button id="{{ element.element }}" class="btn-filtre cursor-pointer">
-                        <img src="{{ asset('images/elements/' ~ element.element|replace({' ': '_'}) ~ '.webp') }}" class="h-8 w-8">
+                        <img src="{{ asset('images/elements/' ~ element.element|replace({' ': '_'}) ~ '.webp') }}" alt="Filtre élément {{ element.element }}" class="h-8 w-8">
                     </button>
                 {% endfor %}
             </div>
@@ -31,7 +31,7 @@
             <div class="flex gap-2">
                 {% for specialite in specialites %}
                     <button id="{{ specialite.specialite }}" class="btn-filtre cursor-pointer">
-                        <img src="{{ asset('images/specialites/' ~ specialite.specialite|replace({' ': '_'}) ~ '.webp') }}" class="h-8 w-8">
+                        <img src="{{ asset('images/specialites/' ~ specialite.specialite|replace({' ': '_'}) ~ '.webp') }}" alt="Filtre spécialité {{ specialite.specialite }}" class="h-8 w-8">
                     </button>
                 {% endfor %}
             </div>
@@ -40,7 +40,7 @@
         <div class="flex flex-wrap gap-4">
             {% for faction in factions %}
                 <button id="{{ faction.faction|replace({' ': '_', "'": '_'}) }}" class="btn-filtre cursor-pointer">
-                    <img src="{{ asset('images/factions/' ~ faction.faction|replace({' ': '_'}) ~ '.webp') }}" class="h-8 w-8">
+                    <img src="{{ asset('images/factions/' ~ faction.faction|replace({' ': '_'}) ~ '.webp') }}" alt="Filtre faction {{ faction.faction }}" class="h-8 w-8">
                 </button>
             {% endfor %}
         </div>
@@ -54,7 +54,7 @@
                 <div class="{{ personnage.element.element }} flex w-full p-[2%]">
                     <!-- Image du personnage -->
                     <div class="flex items-center justify-center min-h-full w-1/4">
-                        <img src="{{ asset('images/icon/' ~ personnage.nomPersonnage|replace({' ': '_'}) ~ '.webp') }}" class="w-36 rounded-lg">
+                        <img src="{{ asset('images/icon/' ~ personnage.nomPersonnage|replace({' ': '_'}) ~ '.webp') }}" alt="Icône de {{ personnage.nomPersonnage }}" class="w-36 rounded-lg">
                     </div>
 
                     <!-- Informations sur le personnage -->
@@ -67,13 +67,13 @@
                         <!-- Rareté, spécialité et faction du personnage -->
                         <div class="flex justify-around h-full w-full">
                             <div class="size-fit">
-                                <img src="{{ asset('images/raretes/' ~ personnage.rarete.rarete|replace({' ': '_'}) ~ '.webp') }}" class="h-12 w-12">
+                                <img src="{{ asset('images/raretes/' ~ personnage.rarete.rarete|replace({' ': '_'}) ~ '.webp') }}" alt="Rareté {{ personnage.rarete.rarete }}" class="h-12 w-12">
                             </div>
                             <div class="size-fit">
-                                <img src="{{ asset('images/specialites/' ~ personnage.specialite.specialite|replace({' ': '_'}) ~ '.webp') }}" class="h-12 w-12">
+                                <img src="{{ asset('images/specialites/' ~ personnage.specialite.specialite|replace({' ': '_'}) ~ '.webp') }}" alt="Spécialité {{ personnage.specialite.specialite }}" class="h-12 w-12">
                             </div>
                             <div class="size-fit">
-                                <img src="{{ asset('images/factions/' ~ personnage.faction.faction|replace({' ': '_'}) ~ '.webp') }}" class="h-12 w-12">
+                                <img src="{{ asset('images/factions/' ~ personnage.faction.faction|replace({' ': '_'}) ~ '.webp') }}" alt="Faction {{ personnage.faction.faction }}" class="h-12 w-12">
                             </div>
                         </div>
                     </div>

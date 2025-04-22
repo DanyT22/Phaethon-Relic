@@ -6,14 +6,14 @@
         <div class='bg-black flex flex-col items-center justify-center gap-2 w-full md:w-1/2 p-2'>
             <p>Personnage</p>
             {{ form_row(form.personnage, {'label': false}) }}
-            <img id="personnage_img" src="{{ asset('images/profils/Anby_Demara.webp')}}" class="h-80" alt="Personnage">
+            <img id="personnage_img" src="{{ asset('images/profils/Anby_Demara.webp')}}" class="h-80" alt="Image du personnage sélectionné">
         </div>
 
         <!-- Section Moteur -->
         <div class='bg-black flex flex-col items-center justify-center gap-2 w-full md:w-1/2 p-2'>
             <p>Moteur</p>
             {{ form_row(form.moteur, {'label': false})}}
-            <img id="moteur_img" src="{{ asset('images/moteurs/[Lunaire]_Pleine_lune.webp')}}" class="h-40" alt="Moteur">
+            <img id="moteur_img" src="{{ asset('images/moteurs/[Lunaire]_Pleine_lune.webp')}}" class="h-40" alt="Image du moteur sélectionné">
         </div>
     </div>
 
